@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_projects",
+  "info": {
+    "name": "Projects",
+    "icon": "project-diagram"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "collection": "project"
+    }
+  }
+}

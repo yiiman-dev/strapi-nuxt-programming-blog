@@ -1,13 +1,22 @@
 {
   "name": "backend",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "YiiMan Site Application",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "forcecreate": "strapi new --quickstart testapp"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".tmp",
+      ".cache"
+    ],
+    "testEnvironment": "node"
   },
   "devDependencies": {},
   "dependencies": {

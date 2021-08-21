@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_sliders",
+  "info": {
+    "name": "Slider",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Subtitle": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Title": {
+      "type": "string"
+    },
+    "UrlTitle": {
+      "type": "string"
+    }
+  }
+}

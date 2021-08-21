@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_logos",
+  "info": {
+    "name": "Logos",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "companies": {
+      "collection": "company"
+    }
+  }
+}
