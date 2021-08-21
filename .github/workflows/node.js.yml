@@ -27,5 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+    - run: npm i yarn
     - run: npm run gitflow --if-present
-    - run: npm run develop --if-present
+
