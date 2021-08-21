@@ -9,7 +9,7 @@
     "testcreate:backend": "cd backend && npm run forcecreate ",
 
     "develop:frontend": "cd frontend && npm run develop",
-    "install:frontend": "cd frontend && npm run install",
+    "install:frontend": "cd frontend && npm install",
     "build:frontend": "cd frontend && npm run build",
 
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
