@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "develop:backend": "npm run develop --prefix  backend",
-    "install:backend": "npm install --prefix backend",
-    "build:backend": "npm run build --prefix backend",
-    "testcreate:backend": "npm run forcecreate --prefix backend",
+    "develop:backend": "cd backend && npm run develop ",
+    "install:backend": "cd backend && npm install ",
+    "build:backend": "cd backend && npm run build ",
+    "testcreate:backend": "cd backend && npm run forcecreate ",
 
-    "develop:frontend": "npm run develop --prefix frontend",
-    "install:frontend": "npm run install --prefix frontend",
-    "build:frontend": "npm run build --prefix frontend",
+    "develop:frontend": "cd frontend && npm run develop",
+    "install:frontend": "cd frontend && npm run install",
+    "build:frontend": "cd frontend && npm run build",
 
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:backend install:frontend",
