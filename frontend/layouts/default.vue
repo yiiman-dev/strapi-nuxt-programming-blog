@@ -1,85 +1,106 @@
 <template>
-  <div>
-    <nav class="uk-navbar-container" uk-navbar>
-      <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-          <li>
-            <a href="#modal-full" uk-toggle><span uk-icon="icon: table" /></a>
-          </li>
-          <li>
-            <nuxt-link to="/" tag="a">Strapi Blog</nuxt-link>
-          </li>
-        </ul>
-      </div>
+  <div id="mcgill-page">
+    <a href="#" class="js-mcgill-nav-toggle mcgill-nav-toggle">
+      <i></i>
+    </a>
+    <!-- Sidebar Section -->
+    <LayoutSideBar
+      :list="menus"
 
-      <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-          <li v-for="category in categories" :key="category.id">
-            <nuxt-link
-              :to="{ name: 'categories-slug', params: { slug: category.slug } }"
-              tag="a"
-            >
-              {{ category.name }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      :title="title"
+      :subtitle="subtitle"
 
-    <div id="modal-full" class="uk-modal-full" uk-modal>
-      <div class="uk-modal-dialog">
-        <button
-          class="uk-modal-close-full uk-close-large"
-          type="button"
-          uk-close
-        />
-        <div
-          class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle"
-          uk-grid
-        >
-          <div
-            class="uk-background-cover"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3308&q=80 3308w');
-            "
-            uk-height-viewport
-          />
-          <div class="uk-padding-large">
-            <h1 style="font-family: Staatliches">Strapi blog</h1>
-            <div class="uk-width-1-2@s">
-              <ul class="uk-nav-primary uk-nav-parent-icon" uk-nav>
-                <li v-for="category in categories" :key="category.id">
-                  <nuxt-link
-                    class="uk-modal-close"
-                    :to="{
-                      name: 'categories-slug',
-                      params: { slug: category.slug },
-                    }"
-                    tag="a"
-                  >
-                    {{ category.name }}
-                  </nuxt-link>
-                </li>
-              </ul>
+      :global="global"
+    />
+    <!-- Main Section -->
+    <div id="mcgill-main">
+      <!-- Slider -->
+      <Nuxt/>
+      <!-- Footer -->
+      <div id="mcgill-footer2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="mcgill-logo">
+                <NuxtLogo :global="global"/>
+                <h2 class="text-center">{{ global.siteName }}<span>{{ global.siteSubName }}</span></h2>
+              </div>
             </div>
-            <p class="uk-text-light">Built with strapi</p>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-left">
+              <div class="mcgill-footer">
+                <p>&copy; {{ global.copywrite_text }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <nuxt />
+    <!-- Js -->
+
   </div>
+
+
 </template>
 
 <script>
+
+import {getMetaTags} from "../utils/seo";
+import {getStrapiMedia} from "../utils/medias";
+import LayoutSideBar from "../components/LayoutSideBar";
+import NuxtLogo from "../components/NuxtLogo";
+
 export default {
+  components: {NuxtLogo, LayoutSideBar},
+
+  head() {
+    const {seo} = this.homepage;
+    const {defaultSeo, favicon, siteName} = this.global;
+
+    // Merge default and article-specific SEO data
+    const fullSeo = {
+      ...defaultSeo,
+      ...seo,
+    };
+
+    return {
+
+      titleTemplate: `%s | ${siteName}`,
+      title: fullSeo.metaTitle,
+      meta: getMetaTags(fullSeo),
+      link: [
+        {
+          rel: "favicon",
+          href: getStrapiMedia(favicon.url),
+        },
+      ],
+    };
+  },
   async fetch() {
-    this.categories = await this.$strapi.find("categories");
+    this.homepage = await this.$strapi.find("homepage");
+    this.global = await this.$strapi.find("global");
+    this.menus = await this.$strapi.find("menus");
+  },
+  methods: {
+    getStrapiMedia,
   },
   data: function () {
     return {
+      menus:[],
+      homepage: {},
+      global: {},
       categories: [],
+      title: 'YiiMan',
+      subtitle: 'YiiMan',
+      list: [
+        {to: '/', title: 'about', icon: 'star', is_active: false}
+      ],
+
+      cell_phone: '+989353466620',
+      copywrite: global.copywrite_text
     };
   },
 };
 </script>
+<style></style>

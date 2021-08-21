@@ -1,51 +1,60 @@
 <template>
-  <div>
-    <div class="uk-section">
-      <div class="uk-container uk-container-large">
-        <h1>{{ homepage.hero.title }}</h1>
-        <Articles :articles="articles" />
+  <div >
+    <!-- Slider -->
+    <SliderBlock v-if="pages.length>0 && pages[0].Slider.length" :sliders="pages[0].Slider"/>
+    <div v-if="pages.length>0" >
+      <div v-for="sec in pages[0].Sections">
+        <ServicesBlock v-if="sec.__component==='sections.services'" :session="sec" />
+        <TestimotionalBlock v-if="sec.__component==='sections.testimotional'" :session="sec"/>
+        <LogosBlock v-if="sec.__component==='sections.logos'" :session="sec"/>
+        <ProjectsBlock v-if="sec.__component==='sections.projects'" :session="sec"/>
+        <BlogBlock v-if="sec.__component==='sections.news'" :session="sec" :articles="articles"/>
       </div>
     </div>
+
+
+    <aside  v-if="pages.length===0" id="mcgill-hero" class="js-fullheight">
+      <div class="flexslider js-fullheight">
+        <h1 style="margin-top: 40%" class="text-center">Default Home Page Not Configed yet</h1>
+      </div>
+    </aside>
+
+
   </div>
+
 </template>
 
 <script>
-import Articles from "../components/Articles";
+
 import { getMetaTags } from "../utils/seo";
 import { getStrapiMedia } from "../utils/medias";
+import SliderBlock from "../components/blocks/SliderBlock";
+import ServicesBlock from "../components/blocks/ServicesBlock";
+import TestimotionalBlock from "../components/blocks/TestimotionalBlock";
+import LogosBlock from "../components/blocks/LogosBlock";
+import ProjectsBlock from "../components/blocks/ProjectsBlock";
+import BlogBlock from "../components/blocks/BlogBlock";
+import main from '../assets/js/main.js'
 
 export default {
   components: {
-    Articles,
+    BlogBlock,
+    ProjectsBlock,
+    LogosBlock,
+    TestimotionalBlock,
+    ServicesBlock,
+    SliderBlock,
+
   },
   async asyncData({ $strapi }) {
     return {
-      articles: await $strapi.find("articles"),
-      homepage: await $strapi.find("homepage"),
-      global: await $strapi.find("global"),
+      pages: await $strapi.find("pages",{is_homepage:true}),
+      articles: await $strapi.find("articles",{_limit:3}),
     };
   },
-  head() {
-    const { seo } = this.homepage;
-    const { defaultSeo, favicon, siteName } = this.global;
-
-    // Merge default and article-specific SEO data
-    const fullSeo = {
-      ...defaultSeo,
-      ...seo,
-    };
-
-    return {
-      titleTemplate: `%s | ${siteName}`,
-      title: fullSeo.metaTitle,
-      meta: getMetaTags(fullSeo),
-      link: [
-        {
-          rel: "favicon",
-          href: getStrapiMedia(favicon.url),
-        },
-      ],
-    };
-  },
+  methods:{getStrapiMedia},
+  mounted() {
+   main()
+  }
 };
 </script>

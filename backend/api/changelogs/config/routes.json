@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/changelogs",
+      "handler": "changelogs.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/changelogs/count",
+      "handler": "changelogs.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/changelogs/:id",
+      "handler": "changelogs.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/changelogs",
+      "handler": "changelogs.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/changelogs/:id",
+      "handler": "changelogs.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/changelogs/:id",
+      "handler": "changelogs.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

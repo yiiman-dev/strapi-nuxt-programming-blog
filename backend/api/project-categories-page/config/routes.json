@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/project-categories-page",
+      "handler": "project-categories-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/project-categories-page",
+      "handler": "project-categories-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/project-categories-page",
+      "handler": "project-categories-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

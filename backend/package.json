@@ -2,7 +2,7 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "YiiMan Site Application",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,23 +11,24 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.6.6",
-    "strapi-admin": "3.6.6",
-    "strapi-utils": "3.6.6",
-    "strapi-plugin-content-type-builder": "3.6.6",
-    "strapi-plugin-content-manager": "3.6.6",
-    "strapi-plugin-users-permissions": "3.6.6",
-    "strapi-plugin-email": "3.6.6",
-    "strapi-plugin-upload": "3.6.6",
-    "strapi-plugin-i18n": "3.6.6",
-    "strapi-connector-bookshelf": "3.6.6",
     "knex": "0.21.18",
-    "sqlite3": "5.0.0",
     "mime-types": "^2.1.27",
-    "strapi-plugin-graphql": "3.6.6"
+    "sqlite3": "5.0.0",
+    "strapi": "3.6.7",
+    "strapi-admin": "3.6.7",
+    "strapi-connector-bookshelf": "3.6.7",
+    "strapi-plugin-content-manager": "3.6.7",
+    "strapi-plugin-content-type-builder": "3.6.7",
+    "strapi-plugin-email": "3.6.7",
+    "strapi-plugin-email-designer": "^1.1.4",
+    "strapi-plugin-graphql": "3.6.7",
+    "strapi-plugin-i18n": "3.6.7",
+    "strapi-plugin-upload": "3.6.7",
+    "strapi-plugin-users-permissions": "3.6.7",
+    "strapi-utils": "3.6.7"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "YiiMan"
   },
   "strapi": {
     "uuid": "98427c6a-a81d-43ff-9b55-d1aab436a7b4",

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_working_types",
+  "info": {
+    "name": "project_working_type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "projects": {
+      "via": "project_working_type",
+      "collection": "project"
+    }
+  }
+}

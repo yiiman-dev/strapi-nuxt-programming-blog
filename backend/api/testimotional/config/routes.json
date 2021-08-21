@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/testimotionals",
+      "handler": "testimotional.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/testimotionals/count",
+      "handler": "testimotional.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/testimotionals/:id",
+      "handler": "testimotional.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/testimotionals",
+      "handler": "testimotional.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/testimotionals/:id",
+      "handler": "testimotional.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/testimotionals/:id",
+      "handler": "testimotional.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

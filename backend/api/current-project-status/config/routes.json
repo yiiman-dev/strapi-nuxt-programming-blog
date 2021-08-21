@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/current-project-statuses",
+      "handler": "current-project-status.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/current-project-statuses/count",
+      "handler": "current-project-status.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/current-project-statuses/:id",
+      "handler": "current-project-status.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/current-project-statuses",
+      "handler": "current-project-status.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/current-project-statuses/:id",
+      "handler": "current-project-status.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/current-project-statuses/:id",
+      "handler": "current-project-status.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

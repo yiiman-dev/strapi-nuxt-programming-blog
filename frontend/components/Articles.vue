@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./single/ArticleCard";
 
 export default {
   components: {
