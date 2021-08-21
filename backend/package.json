@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "YiiMan Site Application",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "test": "jest --forceExit --detectOpenHandles"
+    "forcecreate": "strapi new --quickstart testapp"
   },
   "jest": {
     "testPathIgnorePatterns": [

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_services",
+  "info": {
+    "name": "Services",
+    "icon": "bolt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "services": {
+      "collection": "services"
+    }
+  }
+}

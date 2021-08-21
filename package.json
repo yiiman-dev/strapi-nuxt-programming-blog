@@ -6,6 +6,7 @@
     "develop:backend": "yarn --skip-integrity-check --cwd backend develop",
     "install:backend": "yarn --skip-integrity-check --cwd backend install",
     "build:backend": "yarn --skip-integrity-check --cwd backend build",
+    "testcreate:backend": "yarn --skip-integrity-check --cwd backend forcecreate",
 
     "develop:frontend": "yarn --skip-integrity-check --cwd frontend develop",
     "install:frontend": "yarn --skip-integrity-check --cwd frontend install",
@@ -14,6 +15,7 @@
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:backend install:frontend",
     "build": "cross-env FORCE_COLOR=1 npm-run-all -l -s build:backend build:frontend",
+    "create": "cross-env FORCE_COLOR=1 npm-run-all -l -s testcreate:backend",
 
     "gitflow": "cross-env FORCE_COLOR=1 npm-run-all -l -s installer build"
   },
