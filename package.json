@@ -5,7 +5,7 @@
   "scripts": {
     "develop:backend": "yarn --cwd backend develop",
     "install:backend": "yarn --cwd backend install",
-    "develop:frontend": "wait-on http://localhost:1337/admin && yarn --cwd frontend develop",
+    "develop:frontend": "wait-on http://localhost:1337/admin && yarn --cwd frontend build",
     "install:frontend": "yarn --cwd frontend install",
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -p develop:*",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:*"
