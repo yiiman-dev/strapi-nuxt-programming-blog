@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "develop:backend": "yarn --cwd backend develop",
-    "install:backend": "yarn --cwd backend install",
-    "build:backend": "yarn --cwd backend build",
+    "develop:backend": "yarn --skip-integrity-check --cwd backend develop",
+    "install:backend": "yarn --skip-integrity-check --cwd backend install",
+    "build:backend": "yarn --skip-integrity-check --cwd backend build",
 
-    "develop:frontend": "yarn --cwd frontend develop",
-    "install:frontend": "yarn --cwd frontend install",
-    "build:frontend": "yarn --cwd frontend build",
+    "develop:frontend": "yarn --skip-integrity-check --cwd frontend develop",
+    "install:frontend": "yarn --skip-integrity-check --cwd frontend install",
+    "build:frontend": "yarn --skip-integrity-check --cwd frontend build",
 
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:backend install:frontend",
