@@ -7,15 +7,18 @@
     "install:backend": "cd backend && npm install ",
     "build:backend": "cd backend && npm run build ",
     "testcreate:backend": "cd backend && npm run forcecreate ",
+    "start:backend": "cd backend && npm run start ",
 
     "develop:frontend": "cd frontend && npm run develop",
     "install:frontend": "cd frontend && npm install",
     "build:frontend": "cd frontend && npm run build",
+    "start:frontend": "cd frontend && npm run start",
 
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:backend install:frontend",
     "build": "cross-env FORCE_COLOR=1 npm-run-all -l -s build:backend build:frontend",
     "create": "cross-env FORCE_COLOR=1 npm-run-all -l -s testcreate:backend",
+    "start": "cross-env FORCE_COLOR=1 npm-run-all -l -p start:*",
 
     "gitflow": "cross-env FORCE_COLOR=1 npm-run-all -l -s installer build"
   },
