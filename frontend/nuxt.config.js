@@ -4,7 +4,15 @@ export default {
   target: "server",
   buildDir: 'nuxt-dist',
   ssr: true,
-
+  build:{
+    babel: {
+      presets(env, [preset, options]) {
+        return [
+          ["@babel/preset-env", options]
+        ]
+      }
+    }
+  },
   env: {
     strapiBaseUri,
   },
