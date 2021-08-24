@@ -43,7 +43,6 @@ RUN apk add npm
 
 
 COPY . /var/src/yiiman/
-RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
 
