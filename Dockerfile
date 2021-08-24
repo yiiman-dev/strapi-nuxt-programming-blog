@@ -21,7 +21,7 @@ ENV NUXT_PORT=5000
 RUN npm run installer  --force
 WORKDIR /home/yiiman/frontend
 RUN npm uninstall @babel/preset-env
-RUN npm install @babel/preset-env@7.12.13
+RUN npm install @babel/preset-env@7.15.0
 WORKDIR /home/yiiman
 RUN npm run build
 

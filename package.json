@@ -16,7 +16,7 @@
 
     "develop": "cross-env FORCE_COLOR=1 npm-run-all -l -s develop:backend develop:frontend",
     "installer": "cross-env FORCE_COLOR=1 npm-run-all -l -p install:backend install:frontend",
-    "build": "cross-env FORCE_COLOR=1 npm-run-all -l -s build:backend build:frontend",
+    "build": "NODE_ENV=production cross-env FORCE_COLOR=1 npm-run-all -l -s build:backend build:frontend",
     "create": "cross-env FORCE_COLOR=1 npm-run-all -l -s testcreate:backend",
     "start": "cross-env FORCE_COLOR=1 npm-run-all -l -p start:*",
 

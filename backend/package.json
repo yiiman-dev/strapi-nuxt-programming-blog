@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "NODE_ENV=production strapi build",
+    "build": "strapi build",
     "strapi": "strapi",
     "forcecreate": "strapi new --quickstart testapp"
   },
