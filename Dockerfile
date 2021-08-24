@@ -34,7 +34,7 @@ RUN echo "db post :" $DB_PORT;
 RUN echo "db username :" $DB_USERNAME;
 RUN echo "db name :" $DB_NAME;
 
-#RUN apk add git
+RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
 
