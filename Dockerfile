@@ -53,11 +53,11 @@ RUN rm frontend/yarn.lock
 
 # Install
 RUN npm config set registry https://registry.npmjs.org/
-RUN npm i --production  --loglevel=error
+
 WORKDIR /var/src/yiiman/frontend/
-RUN npm i --production  --loglevel=error
+RUN npm i --production --save-prod  --loglevel=error
 WORKDIR /var/src/yiiman/backend/
-RUN npm i --production  --loglevel=error
+RUN npm i --production --save-prod --loglevel=error
 
 WORKDIR /var/src/yiiman/frontend/
 RUN npm run build --production --loglevel=error
