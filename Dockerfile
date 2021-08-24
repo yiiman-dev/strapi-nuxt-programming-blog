@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:14.17.3
+FROM alpine:3.14
 
 # set front port
 
@@ -45,6 +45,7 @@ RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
 
+
 RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
 RUN mkdir /var/src
 RUN mkdir /var/src/yiiman
@@ -63,7 +64,7 @@ RUN npm run installer  --force
 WORKDIR /var/src/yiiman/frontend
 
 WORKDIR /var/src/yiiman
-RUN npm run build --force
+RUN yarn build --force
 
 # backend
 
