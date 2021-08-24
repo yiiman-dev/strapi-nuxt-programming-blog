@@ -44,8 +44,6 @@ COPY . /var/src/yiiman/
 ENV NODE_ENV=production
 
 
-RUN rm frontend/yarn.lock
-
 # Install
 RUN npm config set registry https://registry.npmjs.org/
 
