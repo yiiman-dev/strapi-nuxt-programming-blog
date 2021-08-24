@@ -1,26 +1,62 @@
 FROM alpine:3.14
+
+# set front port
+
+
+ARG DB_CLIENT='mysql'
+ARG DB_HOST='0.0.0.0'
+ARG DB_PORT=3306
+ARG DB_USERNAME='root'
+ARG DB_PASSWORD=''
+ARG DB_NAME='pblog'
+
+ARG NUXT_HOST='0.0.0.0'
+ARG NUXT_PORT=5000
+
+ARG BACK_URL="http://localhost:1337"
+ARG BACK_HOST='0.0.0.0'
+ARG BACK_PORT=1337
+
+
+ENV DATABASE_CLIENT=$DB_PORT
+ENV DATABASE_PORT=$DB_PORT
+ENV HOST=$BACK_HOST
+ENV NUXT_HOST=$NUXT_HOST
+ENV NUXT_PORT=$NUXT_PORT
+ENV API_URL=$BACK_URL
+ENV PORT=$BACK_PORT
+# expose 5000,1337 on container
+EXPOSE $BACK_PORT
+EXPOSE $NUXT_PORT
+
+RUN echo "db client :" $DB_CLIENT;
+RUN echo "db host :" $DB_HOST;
+RUN echo "db post :" $DB_PORT;
+RUN echo "db username :" $DB_USERNAME;
+RUN echo "db name :" $DB_NAME;
+
+
+
+
+
+
+
 RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
 
-#RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
+RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
 
+RUN mv /home/yiiman/strapi-nuxt-programming-blog/* /var/src/yiiman/
 
-COPY . /var/src/yiiman/
 WORKDIR /var/src/yiiman/
-#RUN mv /home/yiiman/strapi-nuxt-programming-blog/* /home/yiiman/
+
 #RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
 RUN npm i
 RUN npm i -g yarn
 
-# expose 5000,1337 on container
-EXPOSE 5000
-EXPOSE 1337
 
-# set front port
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=5000
-ENV API_URL="http://localhost:1337"
+
 
 RUN npm run installer  --force
 WORKDIR /var/src/yiiman/frontend
@@ -29,7 +65,7 @@ WORKDIR /var/src/yiiman
 RUN npm run build --force
 
 # backend
-ENV HOST=0.0.0.0
+
 ENV PORT=1337
 
 # start the app
