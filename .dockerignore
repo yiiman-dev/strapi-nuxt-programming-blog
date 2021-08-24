@@ -10,8 +10,8 @@ backend/.tmp
 backend/.strapi-updater.json
 backend/.package-lock.json
 frontend/.package-lock.json
-frontend/assets/images
-frontend/static/images
+#frontend/assets/images
+#frontend/static/images
 .env.example*
 README*
 readme*
