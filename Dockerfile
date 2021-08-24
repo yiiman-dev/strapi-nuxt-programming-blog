@@ -37,7 +37,7 @@ RUN echo "db name :" $DB_NAME;
 RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
-RUN npm i -g yarn
+#RUN npm i -g yarn
 RUN mkdir -p /var/src/yiiman
 COPY . /var/src/yiiman/
 
@@ -48,14 +48,14 @@ ENV NODE_ENV=production
 RUN npm config set registry https://registry.npmjs.org/
 
 WORKDIR /var/src/yiiman/frontend/
-RUN yarn install --ignore-scripts
+RUN npm install --save-prod --ignore-scripts
 WORKDIR /var/src/yiiman/backend/
-RUN yarn install --ignore-scripts
+RUN npm install --save-prod --ignore-scripts
 
 WORKDIR /var/src/yiiman/frontend/
-RUN yarn run build --production --loglevel=error
+RUN npm run build --production --loglevel=error
 WORKDIR /var/src/yiiman/backend/
-RUN yarn run build --production --loglevel=error
+RUN npm run build --production --loglevel=error
 
 WORKDIR /var/src/yiiman/
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
