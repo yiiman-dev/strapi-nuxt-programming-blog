@@ -50,8 +50,8 @@ WORKDIR /var/src/yiiman/
 RUN rm yarn.lock
 RUN rm frontend/yarn.lock
 RUN npm i
-RUN npm run build
 RUN npm run installer  --force
+
 RUN npm run build --force
 
 CMD [ "npm", "start" ]
