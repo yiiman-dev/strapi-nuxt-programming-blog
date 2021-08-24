@@ -41,7 +41,7 @@ RUN apk add npm
 
 
 
-
+RUN mkdir -p /var/src/yiiman
 COPY . /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
