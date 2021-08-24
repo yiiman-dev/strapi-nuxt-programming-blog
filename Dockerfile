@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM mhart/alpine-node:14.17.3
 
 # set front port
 
@@ -46,7 +46,8 @@ RUN apk add nodejs
 RUN apk add npm
 
 RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
-
+RUN mkdir /var/src
+RUN mkdir /var/src/yiiman
 RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
@@ -65,8 +66,6 @@ WORKDIR /var/src/yiiman
 RUN npm run build --force
 
 # backend
-
-ENV PORT=1337
 
 # start the app
 CMD [ "npm", "start" ]
