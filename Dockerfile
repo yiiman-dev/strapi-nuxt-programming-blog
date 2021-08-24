@@ -38,17 +38,12 @@ RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
 
-
-
-
 RUN mkdir -p /var/src/yiiman
 COPY . /var/src/yiiman/
 
-WORKDIR /var/src/yiiman/
-
 ENV NODE_ENV=production
 
-RUN rm yarn.lock
+
 RUN rm frontend/yarn.lock
 
 # Install
