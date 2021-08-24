@@ -2,7 +2,6 @@ FROM alpine:3.14
 
 # set front port
 
-
 ARG DB_CLIENT='mysql'
 ARG DB_HOST='0.0.0.0'
 ARG DB_PORT=3306
@@ -35,15 +34,11 @@ RUN echo "db post :" $DB_PORT;
 RUN echo "db username :" $DB_USERNAME;
 RUN echo "db name :" $DB_NAME;
 
-
-
-
-
-
-
-RUN apk add git
+#RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
+
+
 
 
 RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
@@ -53,10 +48,14 @@ RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
 
-#RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
+
+RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
+RUN rm yarn.lock
+RUN rm frontend/yarn.lock
 RUN npm i
 RUN npm i -g yarn
-
+RUN npm run build
+#RUN npm run start
 
 
 
@@ -64,9 +63,10 @@ RUN npm run installer  --force
 WORKDIR /var/src/yiiman/frontend
 
 WORKDIR /var/src/yiiman
-RUN yarn build --force
+RUN npm run build --force
 
 # backend
 
 # start the app
+
 CMD [ "npm", "start" ]
