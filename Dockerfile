@@ -47,7 +47,7 @@ RUN apk add npm
 
 RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
 
-RUN mv /home/yiiman/strapi-nuxt-programming-blog/* /var/src/yiiman/
+RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
 
