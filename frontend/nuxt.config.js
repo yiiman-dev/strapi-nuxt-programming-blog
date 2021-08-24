@@ -5,6 +5,7 @@ export default {
   buildDir: 'nuxt-dist',
   ssr: true,
   build:{
+    analyze: true,
     babel: {
       presets({ isServer }) {
         return [
