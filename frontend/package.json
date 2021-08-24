@@ -36,9 +36,6 @@
     "eslint-plugin-vue": "7.16.0",
     "prettier": "^2.1.2"
   },
-  "workspaces": [
-    "packages/*",
-    "distributions/*"
-  ],
+
   "license": "MIT"
 }
