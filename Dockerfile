@@ -50,9 +50,18 @@ ENV NODE_ENV=production
 
 RUN rm yarn.lock
 RUN rm frontend/yarn.lock
-RUN npm i --production
-RUN npm run installer  --force --production
 
-RUN npm run build --force --production
+# Install
+RUN npm i --production --force --loglevel=error
+WORKDIR /var/src/yiiman/frontend/
+RUN npm i --production --force --loglevel=error
+WORKDIR /var/src/yiiman/backend/
+RUN npm i --production --force --loglevel=error
 
+WORKDIR /var/src/yiiman/frontend/
+RUN npm run build --production --loglevel=error
+WORKDIR /var/src/yiiman/backend/
+RUN npm run build --production --loglevel=error
+
+WORKDIR /var/src/yiiman/
 CMD [ "npm", "start" ]
