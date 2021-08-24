@@ -2,11 +2,14 @@ FROM alpine:3.14
 RUN apk add git
 RUN apk add nodejs
 RUN apk add npm
-RUN mkdir /home/yiiman
-WORKDIR /home/yiiman
-RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
-RUN mv /home/yiiman/strapi-nuxt-programming-blog/* /home/yiiman/
-RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
+
+#RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
+
+
+COPY . /var/src/yiiman/
+WORKDIR /var/src/yiiman/
+#RUN mv /home/yiiman/strapi-nuxt-programming-blog/* /home/yiiman/
+#RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
 RUN npm i
 RUN npm i -g yarn
 
@@ -17,13 +20,13 @@ EXPOSE 1337
 # set front port
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=5000
+ENV API_URL="http://localhost:1337"
 
 RUN npm run installer  --force
-WORKDIR /home/yiiman/frontend
-RUN npm uninstall @babel/preset-env
-RUN npm install @babel/preset-env@7.15.0
-WORKDIR /home/yiiman
-RUN npm run build
+WORKDIR /var/src/yiiman/frontend
+
+WORKDIR /var/src/yiiman
+RUN npm run build --force
 
 # backend
 ENV HOST=0.0.0.0
