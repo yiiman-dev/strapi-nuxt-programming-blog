@@ -41,32 +41,18 @@ RUN apk add npm
 
 
 
-RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
-RUN mkdir /var/src
-RUN mkdir /var/src/yiiman
+
+COPY . /var/src/yiiman/
 RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
 
 
-RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
 RUN rm yarn.lock
 RUN rm frontend/yarn.lock
 RUN npm i
-RUN npm i -g yarn
 RUN npm run build
-#RUN npm run start
-
-
-
 RUN npm run installer  --force
-WORKDIR /var/src/yiiman/frontend
-
-WORKDIR /var/src/yiiman
 RUN npm run build --force
-
-# backend
-
-# start the app
 
 CMD [ "npm", "start" ]
