@@ -48,9 +48,9 @@ ENV NODE_ENV=production
 RUN npm config set registry https://registry.npmjs.org/
 
 WORKDIR /var/src/yiiman/frontend/
-RUN yarn install --save --ignore-scripts --silent
+RUN yarn install --ignore-scripts
 WORKDIR /var/src/yiiman/backend/
-RUN yarn install --save --ignore-scripts --silent
+RUN yarn install --ignore-scripts
 
 WORKDIR /var/src/yiiman/frontend/
 RUN yarn run build --production --loglevel=error
