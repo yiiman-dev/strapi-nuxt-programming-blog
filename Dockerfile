@@ -27,7 +27,7 @@ ENV NUXT_PORT=$NUXT_PORT
 ENV API_URL=$BACK_URL
 ENV PORT=$BACK_PORT
 # expose 5000,1337 on container
-EXPOSE $BACK_PORT
+
 EXPOSE $NUXT_PORT
 
 RUN echo "db client :" $DB_CLIENT;
@@ -37,21 +37,6 @@ RUN echo "db username :" $DB_USERNAME;
 RUN echo "db name :" $DB_NAME;
 
 
-# you'll likely want the latest npm, regardless of node version, for speed and fixes
-# but pin this version for the best stability
-RUN npm i npm@latest -g
-
-
-RUN mkdir -p /var/src/yiiman && chown node:node /var/src/yiiman
-COPY --chown=node:node . /var/src/yiiman/
-
-
-# the official node image provides an unprivileged user as a security best practice
-# but we have to manually enable it. We put it here so npm installs dependencies as the same
-# user who runs the app.
-# https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
-USER node
-
 
 # set our node environment, either development or production
 # defaults to production, compose overrides this to development on build and run
@@ -59,16 +44,32 @@ ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
 
+# you'll likely want the latest npm, regardless of node version, for speed and fixes
+# but pin this version for the best stability
+RUN npm i npm@latest -g
 
-WORKDIR /var/src/yiiman/frontend/
-RUN npm install --no-optional && npm cache clean --force
+
+RUN mkdir -p /var/src/yiiman/ && chown node:node /var/src/yiiman/
+COPY --chown=node:node . /var/src/yiiman/
+
+# the official node image provides an unprivileged user as a security best practice
+# but we have to manually enable it. We put it here so npm installs dependencies as the same
+# user who runs the app.
+# https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
+USER node
+
+FROM base as backend-dev
+
+EXPOSE $BACK_PORT
 WORKDIR /var/src/yiiman/backend/
 RUN npm install --no-optional && npm cache clean --force
+RUN npm run build --production --loglevel=error
+CMD [ "npm", "start" ]
 
+
+FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
-RUN npm run build --production --loglevel=error
-WORKDIR /var/src/yiiman/backend/
+RUN npm install --no-optional && npm cache clean --force
 RUN npm run build --production --loglevel=error
 
-WORKDIR /var/src/yiiman/backend
 CMD [ "npm", "start" ]
