@@ -17,3 +17,7 @@ README*
 readme*
 *.md
 .github
+Dockerfile
+.dockerignore
+.gitignore
+.package-lock.json

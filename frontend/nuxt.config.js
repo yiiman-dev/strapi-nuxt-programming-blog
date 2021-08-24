@@ -6,9 +6,16 @@ export default {
   ssr: true,
   build:{
     babel: {
-      presets(env, [preset, options]) {
+      presets({ isServer }) {
         return [
-          ["@babel/preset-env", options]
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+            {
+              buildTarget: isServer ? 'server' : 'client',
+              corejs: { version: 3 }
+            }
+          ]
         ]
       }
     }
