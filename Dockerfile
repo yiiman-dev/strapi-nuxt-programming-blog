@@ -46,12 +46,13 @@ COPY . /var/src/yiiman/
 
 WORKDIR /var/src/yiiman/
 
+ENV NODE_ENV=production
 
 RUN rm yarn.lock
 RUN rm frontend/yarn.lock
-RUN npm i
-RUN npm run installer  --force
+RUN npm i --production
+RUN npm run installer  --force --production
 
-RUN npm run build --force
+RUN npm run build --force --production
 
 CMD [ "npm", "start" ]
