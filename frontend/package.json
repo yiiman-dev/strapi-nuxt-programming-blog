@@ -9,7 +9,7 @@
     "dev": "nuxt",
     "develop": "nuxt",
     "start": "nuxt start",
-    "build": "nuxt build",
+    "build": "NODE_ENV=production nuxt build",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue .",
     "lint:fix": "eslint --ext .js,.vue . --fix"

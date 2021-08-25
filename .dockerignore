@@ -5,7 +5,7 @@ npm-debug*
 frontend/.nuxt
 #frontend/.nuxt-dist
 #backend/build
-backend/cache
+#backend/cache
 backend/.tmp
 backend/.strapi-updater.json
 backend/.package-lock.json
