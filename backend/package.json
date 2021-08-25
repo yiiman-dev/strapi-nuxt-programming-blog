@@ -35,7 +35,8 @@
     "strapi-plugin-upload": "3.6.7",
     "strapi-plugin-users-permissions": "3.6.7",
     "strapi-utils": "3.6.7",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "pg": "^8.7.1"
   },
   "author": {
     "name": "YiiMan"
