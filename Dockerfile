@@ -65,8 +65,8 @@ COPY . /var/src/yiiman/
 FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
 
-RUN apt-get update
-RUN apt-get install -y mysql-client-core-5.1
+
+RUN apt-get install -y mysql-client
 RUN npm ci && npm cache clean --force
 RUN npm run build --production --loglevel=error
 
