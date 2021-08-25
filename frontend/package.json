@@ -25,10 +25,10 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "~7.15.3",
-    "@babel/preset-env": "7.12.17",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@ls-lint/ls-lint": "^1.10.0",
     "babel-eslint": "^10.1.0",
-    "core-js": "~3.16.3",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^4.0.2",

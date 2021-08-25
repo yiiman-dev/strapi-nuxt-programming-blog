@@ -27,7 +27,7 @@ ENV NUXT_PORT=$NUXT_PORT
 ENV API_URL=$BACK_URL
 ENV PORT=$BACK_PORT
 # expose 5000,1337 on container
-
+EXPOSE $BACK_PORT
 EXPOSE $NUXT_PORT
 
 RUN echo "db client :" $DB_CLIENT;
@@ -63,16 +63,20 @@ COPY . /var/src/yiiman/
 #USER node
 
 FROM base as backend-dev
-EXPOSE $BACK_PORT
 WORKDIR /var/src/yiiman/backend/
 RUN npm install
 RUN npm run build --production --loglevel=error
+
+FROM backend-dev as backend-prod
+WORKDIR /var/src/yiiman/backend/
 CMD [ "npm", "start" ]
 
 
 FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
 RUN npm install
-RUN npm run build --production --loglevel=error
+RUN npm run build
 
+FROM frontend-dev as frontend-prod
+WORKDIR /var/src/yiiman/frontend/
 CMD [ "npm", "start" ]
