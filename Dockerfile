@@ -1,4 +1,6 @@
-FROM alpine:3.14
+# if you're doing anything beyond your local machine, please pin this to a specific version at https://hub.docker.com/_/node/
+# FROM node:12-alpine also works here for a smaller image
+FROM ubuntu:18.04 as base
 
 # set front port
 
@@ -17,7 +19,7 @@ ARG BACK_HOST='0.0.0.0'
 ARG BACK_PORT=1337
 
 
-ENV DATABASE_CLIENT=$DB_PORT
+ENV DATABASE_CLIENT=$DB_CLIENT
 ENV DATABASE_PORT=$DB_PORT
 ENV HOST=$BACK_HOST
 ENV NUXT_HOST=$NUXT_HOST
@@ -34,39 +36,48 @@ RUN echo "db post :" $DB_PORT;
 RUN echo "db username :" $DB_USERNAME;
 RUN echo "db name :" $DB_NAME;
 
-RUN apk add git
-RUN apk add nodejs
-RUN apk add npm
 
 
+# set our node environment, either development or production
+# defaults to production, compose overrides this to development on build and run
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
 
 
-RUN git clone https://github.com/amintado/strapi-nuxt-programming-blog.git
-RUN mkdir /var/src
-RUN mkdir /var/src/yiiman
-RUN mv strapi-nuxt-programming-blog/* /var/src/yiiman/
+# you'll likely want the latest npm, regardless of node version, for speed and fixes
+# but pin this version for the best stability
+RUN apt-get update
+RUN apt-get -y install curl wget
+RUN curl -sL  https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt install -y nodejs
+RUN npm set progress=false
+RUN npm npm config set depth 0
 
-WORKDIR /var/src/yiiman/
+RUN mkdir -p /var/src/yiiman/
+COPY . /var/src/yiiman/
+
+# the official node image provides an unprivileged user as a security best practice
+# but we have to manually enable it. We put it here so npm installs dependencies as the same
+# user who runs the app.
+# https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
+#USER node
+
+FROM base as backend-dev
+WORKDIR /var/src/yiiman/backend/
+RUN npm ci && npm cache clean --force
+RUN npm run build --production --loglevel=error
+
+FROM backend-dev as backend-prod
+WORKDIR /var/src/yiiman/backend/
+CMD [ "npm", "start" ]
 
 
-RUN rm -rf /home/yiiman/strapi-nuxt-programming-blog
-RUN rm yarn.lock
-RUN rm frontend/yarn.lock
-RUN npm i
-RUN npm i -g yarn
+FROM base as frontend-dev
+WORKDIR /var/src/yiiman/frontend/
+RUN npm ci && npm cache clean --force
 RUN npm run build
-#RUN npm run start
 
-
-
-RUN npm run installer  --force
-WORKDIR /var/src/yiiman/frontend
-
-WORKDIR /var/src/yiiman
-RUN npm run build --force
-
-# backend
-
-# start the app
-
+FROM frontend-dev as frontend-prod
+WORKDIR /var/src/yiiman/frontend/
 CMD [ "npm", "start" ]

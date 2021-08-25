@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
+  "type": "module",
   "description": "My polished Nuxt.js project",
   "author": "You",
   "private": false,
@@ -14,21 +15,21 @@
     "lint:fix": "eslint --ext .js,.vue . --fix"
   },
   "dependencies": {
+    "core-js": "^3.16.3",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/strapi": "^0.1.6",
     "bootstrap-vue": "^2.21.2",
     "graphql": "^14.5.8",
     "jquery": "^3.6.0",
     "moment": "^2.29.0",
-    "nuxt": "^2.15.2",
-    "popper.js": "^1.16.1",
-    "uikit": "^3.2.3"
+    "nuxt": "^2.15.8",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "~7.9.6",
-    "@babel/preset-env": "7.12.17",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@ls-lint/ls-lint": "^1.10.0",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.5",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^4.0.2",
@@ -36,9 +37,5 @@
     "eslint-plugin-vue": "7.16.0",
     "prettier": "^2.1.2"
   },
-  "workspaces": [
-    "packages/*",
-    "distributions/*"
-  ],
   "license": "MIT"
 }

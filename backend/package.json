@@ -22,6 +22,8 @@
   "dependencies": {
     "knex": "0.21.18",
     "mime-types": "^2.1.27",
+    "mysql": "^2.18.1",
+    "pg": "^8.7.1",
     "sqlite3": "5.0.0",
     "strapi": "3.6.7",
     "strapi-admin": "3.6.7",
