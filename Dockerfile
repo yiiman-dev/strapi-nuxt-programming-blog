@@ -1,6 +1,6 @@
 # if you're doing anything beyond your local machine, please pin this to a specific version at https://hub.docker.com/_/node/
 # FROM node:12-alpine also works here for a smaller image
-FROM ubuntu:18.04 as base
+FROM ubuntu:18.04
 
 # set front port
 
@@ -60,7 +60,7 @@ COPY . /var/src/yiiman/
 # https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
 #USER node
 
-FROM base as backend
+
 WORKDIR /var/src/yiiman/backend/
 RUN npm set progress=false
 RUN npm config set depth 0
@@ -69,7 +69,6 @@ RUN npm run build --production --loglevel=error
 CMD [ "npm", "start" ]
 
 
-FROM base as frontend
 WORKDIR /var/src/yiiman/frontend/
 RUN npm set progress=false
 RUN npm config set depth 0
