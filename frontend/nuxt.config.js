@@ -1,9 +1,14 @@
 const strapiBaseUri = process.env.API_URL || "http://localhost:1337";
-
+const port =process.env.NUXT_PORT || 5000;
+const host=process.env.NUXT_HOST || '0.0.0.0';
 export default {
   target: "server",
   buildDir: 'nuxt-dist',
   ssr: true,
+  server:{
+    port:port,
+    host:host
+  },
   build:{
     // analyze: true,
     babel: {
