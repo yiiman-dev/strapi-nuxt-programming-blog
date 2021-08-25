@@ -46,7 +46,7 @@ ENV NODE_ENV $NODE_ENV
 
 # you'll likely want the latest npm, regardless of node version, for speed and fixes
 # but pin this version for the best stability
-RUN npm i npm@latest -g
+RUN npm i npm@6.14.13 -g
 
 
 RUN mkdir -p /var/src/yiiman/ && chown node:node /var/src/yiiman/
