@@ -1,6 +1,6 @@
 # if you're doing anything beyond your local machine, please pin this to a specific version at https://hub.docker.com/_/node/
 # FROM node:12-alpine also works here for a smaller image
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as base
 
 # set front port
 
@@ -51,6 +51,9 @@ RUN apt-get -y install curl wget
 RUN curl -sL  https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt install -y nodejs
+RUN npm set progress=false
+RUN npm npm config set depth 0
+
 RUN mkdir -p /var/src/yiiman/
 COPY . /var/src/yiiman/
 
@@ -60,20 +63,21 @@ COPY . /var/src/yiiman/
 # https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
 #USER node
 
-
+FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
-RUN npm set progress=false
-RUN npm config set depth 0
-RUN npm install && npm cache clean --force
+RUN npm ci && npm cache clean --force
 RUN npm run build --production --loglevel=error
+
+FROM backend-dev as backend-prod
+WORKDIR /var/src/yiiman/backend/
 CMD [ "npm", "start" ]
 
 
+FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
-RUN npm set progress=false
-RUN npm config set depth 0
-RUN npm install && npm cache clean --force
+RUN npm ci && npm cache clean --force
 RUN npm run build
 
+FROM frontend-dev as frontend-prod
 WORKDIR /var/src/yiiman/frontend/
 CMD [ "npm", "start" ]
