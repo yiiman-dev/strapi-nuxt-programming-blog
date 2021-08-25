@@ -1,6 +1,6 @@
 # if you're doing anything beyond your local machine, please pin this to a specific version at https://hub.docker.com/_/node/
 # FROM node:12-alpine also works here for a smaller image
-FROM node:14.17-slim as base
+FROM ubuntu:18.04 as base
 
 # set front port
 
@@ -46,30 +46,33 @@ ENV NODE_ENV $NODE_ENV
 
 # you'll likely want the latest npm, regardless of node version, for speed and fixes
 # but pin this version for the best stability
-RUN npm i npm@6.14.13 -g
+RUN apt-get update
+RUN apt-get -y install curl wget
+RUN curl -sL  https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt install -y nodejs
 
 
-RUN mkdir -p /var/src/yiiman/ && chown node:node /var/src/yiiman/
-COPY --chown=node:node . /var/src/yiiman/
+RUN mkdir -p /var/src/yiiman/
+COPY . /var/src/yiiman/
 
 # the official node image provides an unprivileged user as a security best practice
 # but we have to manually enable it. We put it here so npm installs dependencies as the same
 # user who runs the app.
 # https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
-USER node
+#USER node
 
 FROM base as backend-dev
-
 EXPOSE $BACK_PORT
 WORKDIR /var/src/yiiman/backend/
-RUN npm install --no-optional && npm cache clean --force
+RUN npm install
 RUN npm run build --production --loglevel=error
 CMD [ "npm", "start" ]
 
 
 FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
-RUN npm install --no-optional && npm cache clean --force
+RUN npm install
 RUN npm run build --production --loglevel=error
 
 CMD [ "npm", "start" ]
