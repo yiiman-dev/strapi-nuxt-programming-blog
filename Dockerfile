@@ -52,7 +52,7 @@ RUN curl -sL  https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt install -y nodejs
 RUN npm set progress=false
-RUN npm npm config set depth 0
+RUN npm config set depth 0
 
 RUN mkdir -p /var/src/yiiman/
 COPY . /var/src/yiiman/
@@ -66,7 +66,7 @@ COPY . /var/src/yiiman/
 FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
 RUN npm ci && npm cache clean --force
-RUN npm run build --production --loglevel=error
+#RUN npm run build --production --loglevel=error
 
 FROM backend-dev as backend-prod
 WORKDIR /var/src/yiiman/backend/
@@ -76,7 +76,7 @@ CMD [ "npm", "start" ]
 FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
 RUN npm ci && npm cache clean --force
-RUN npm run build
+#RUN npm run build
 
 FROM frontend-dev as frontend-prod
 WORKDIR /var/src/yiiman/frontend/
