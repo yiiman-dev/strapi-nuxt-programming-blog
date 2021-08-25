@@ -5,7 +5,7 @@ module.exports = ({ env }) => ({
       connector: 'bookshelf',
       settings: {
         client: env('DATABASE_CLIENT', 'sqlite'),
-        filename: env('d', '.tmp/data.db'),
+        filename: env('DATABASE_FILE', '.tmp/data.db'),
         port: env.int('DATABASE_PORT', 3306),
         username: env('DATABASE_USERNAME', 'root'),
         host:     env('DATABASE_HOST', 'localhost'),
