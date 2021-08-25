@@ -64,7 +64,7 @@ COPY . /var/src/yiiman/
 
 FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
-RUN npm install
+RUN npm ci && npm cache clean --force
 RUN npm run build --production --loglevel=error
 
 FROM backend-dev as backend-prod
@@ -74,7 +74,7 @@ CMD [ "npm", "start" ]
 
 FROM base as frontend-dev
 WORKDIR /var/src/yiiman/frontend/
-RUN npm install
+RUN npm ci && npm cache clean --force
 RUN npm run build
 
 FROM frontend-dev as frontend-prod
