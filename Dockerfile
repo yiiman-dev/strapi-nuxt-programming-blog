@@ -63,7 +63,7 @@ COPY . /var/src/yiiman/
 FROM base as backend
 WORKDIR /var/src/yiiman/backend/
 RUN npm set progress=false
-RUN npm npm config set depth 0
+RUN npm config set depth 0
 RUN npm install && npm cache clean --force
 RUN npm run build --production --loglevel=error
 CMD [ "npm", "start" ]
@@ -72,7 +72,7 @@ CMD [ "npm", "start" ]
 FROM base as frontend
 WORKDIR /var/src/yiiman/frontend/
 RUN npm set progress=false
-RUN npm npm config set depth 0
+RUN npm config set depth 0
 RUN npm install && npm cache clean --force
 RUN npm run build
 
