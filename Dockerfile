@@ -67,6 +67,7 @@ WORKDIR /var/src/yiiman/backend/
 
 
 RUN apt-get install -y mysql-client
+RUN apt-get install -y libmysqlclient-dev
 RUN npm ci && npm cache clean --force
 RUN npm run build --production --loglevel=error
 

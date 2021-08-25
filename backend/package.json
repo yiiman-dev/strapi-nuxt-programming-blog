@@ -8,7 +8,8 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "forcecreate": "strapi new --quickstart testapp"
+    "forcecreate": "strapi new --quickstart testapp",
+
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -34,7 +35,8 @@
     "strapi-plugin-i18n": "3.6.7",
     "strapi-plugin-upload": "3.6.7",
     "strapi-plugin-users-permissions": "3.6.7",
-    "strapi-utils": "3.6.7"
+    "strapi-utils": "3.6.7",
+    "mysql": "^2.18.1"
   },
   "author": {
     "name": "YiiMan"
