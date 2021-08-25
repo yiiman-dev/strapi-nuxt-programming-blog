@@ -66,7 +66,7 @@ FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
 RUN npm ci && npm cache clean --force
 RUN npm run build --production --loglevel=error
-RUN apt-get install -y mysql\*
+RUN apt-get install -y mysql-client-core-5.1
 
 FROM backend-dev as backend-prod
 WORKDIR /var/src/yiiman/backend/
