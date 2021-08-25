@@ -64,13 +64,13 @@ COPY . /var/src/yiiman/
 
 FROM base as backend-dev
 WORKDIR /var/src/yiiman/backend/
-RUN npm ci && npm cache clean --force
+RUN apt-get install -y libmysqlclient-dev
+RUN npm install && npm cache clean --force
 RUN npm run build --production --loglevel=error
-CMD [ "npm", "start" ]
 
 FROM backend-dev as backend-prod
 WORKDIR /var/src/yiiman/backend/
-
+CMD [ "npm", "start" ]
 
 
 FROM base as frontend-dev
