@@ -12,7 +12,7 @@
               <Logo :global="global"/>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse"
-                      data-target="#navbarNavDropdown" aria-expanded="false" aria-label="تغییر ناوبری">
+                      data-target="#navbarNavDropdown" aria-expanded="false" :aria-label="$t('Change navigation')">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -56,8 +56,8 @@
                   </li>
                 </ul>
                 <div class="header-call d-flex align-items-center ml-3">
-                  <h5>تماس:</h5>
-                  <a href="tel:+912345678900"><b>+91-234-567-8900</b></a>
+                  <h5>{{ $t('Call:') }} </h5>
+                  <a :href="'tel:'+global.phone_number"><b>{{ global.phone_number }}</b></a>
                 </div>
               </div>
             </nav>

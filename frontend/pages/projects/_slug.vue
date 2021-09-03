@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item">
                   <p-link to="/projects">{{ $t('Projects') }}</p-link>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ project[0].title }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ project[0].name }}</li>
               </ol>
             </nav>
           </div>
@@ -328,6 +328,9 @@ export default {
   border-radius: 5px
   padding-top: 2px
   float: right
-  max-width: 100%;
+  max-width: 100%
+.badge
+  margin-right: 2px
+  margin-left: 2px
 </style>
 

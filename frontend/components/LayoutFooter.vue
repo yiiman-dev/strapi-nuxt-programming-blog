@@ -8,62 +8,33 @@
           <div class="row align-items-center">
             <div class="col-lg-4 col-md-6">
               <div class="footer-logo mb-3">
-                <img id="footer-logo-white-img" :src="getStrapiMedia(global.logo.url)" class="img-center" alt="">
+                <img id="footer-logo-white-img" v-if="global.footerLogo" :src="getStrapiMedia(global.footerLogo.url)" class="img-center" :alt="global.siteName">
               </div>
-              <p class="mb-0">ساساشت - قالب خلاق چند منظوره اپ، استارت آپ، شرکتی و ... قالب چند منظوره
-                ریسپانسی بوت استرپ 4. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                از طراحان گرافیک است..</p>
-
+              <Markdown2Html v-if="global.footerDescription" class="mb-0" :content="global.footerDescription"/>
             </div>
             <div class="col-lg-4 col-md-6 sm-mt-5">
-              <h4 class="mb-4 text-white">لینک های کمکی</h4>
+
               <div class="footer-list justify-content-between d-flex">
                 <ul class="list-unstyled w-100">
-                  <li><a href="about-us.html">درباره ما</a>
-                  </li>
-                  <li><a href="services.html">خدمات</a>
-                  </li>
-                  <li><a href="team.html">تیم</a>
-                  </li>
-                  <li><a href="team-single.html">اعضای تیم</a>
-                  </li>
-                  <li><a href="contact.html">تماس با ما</a>
-                  </li>
+                  <li v-for="item in global.column1Links"><a :href="item.url">{{ item.title }}</a></li>
                 </ul>
                 <ul class="list-unstyled w-100">
-                  <li><a href="blog-right-sidebar.html">بلاگ</a>
-                  </li>
-                  <li><a href="faq.html">گفت و گو</a>
-                  </li>
-                  <li><a href="error-404.html">خطای 404</a>
-                  </li>
-                  <li><a href="privacy-policy.html">حریم شخصی</a>
-                  </li>
-                  <li><a href="terms-and-conditions.html">قوانین</a>
-                  </li>
+                  <li v-for="item in global.column2Links"><a :href="item.url">{{ item.title }}</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-4 col-md-12 md-mt-5">
               <div class="footer-cntct">
-                <h4 class="mb-4 text-white">در تماس باشید</h4>
+                <h4 class="mb-4 text-white">{{ $t('Ways of communication') }} </h4>
                 <ul class="media-icon list-unstyled">
-                  <li>
-                    <p class="mb-0"><i class="la la-map-o"></i> <b> ایران، ارومیه، شاهین دژ</b>
-                    </p>
+                  <li><i class="la la-envelope-o"></i> <a :href="'mailto:'+global.email"><b>{{ global.email }}</b></a>
                   </li>
-                  <li><i class="la la-envelope-o"></i> <a href="mailto:themeht23@gmail.com"><b>themeht23@gmail.com</b></a>
-                  </li>
-                  <li><i class="la la-phone"></i> <a href="tel:+912345678900"><b>+91-234-567-8900</b></a>
+                  <li><i class="la la-phone"></i> <a :href="'tel:'+global.phone_number"><b>{{global.phone_number}}</b></a>
                   </li>
                 </ul>
                 <div class="social-icons mt-3">
                   <ul class="list-inline">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-dribbble"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-skype"></i></a>
+                    <li v-for="soc in global.socials"><a :href="soc.url"><i :class="'fab fa-'+soc.icon"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -76,7 +47,8 @@
         <div class="container">
           <div class="copyright">
             <div class="row">
-              <div class="col-md-12"><span>کپی رایت 1398 ساساشت ، بومی سازی توسط <u><a href="#">جعفر عباسی</a></u> | تمام حقوق محفوظ است</span>
+              <div class="col-md-12" v-html="global.copywrite_text">
+
               </div>
             </div>
           </div>
@@ -91,10 +63,12 @@
 
 <script>
 import {getStrapiMedia} from "../utils/medias";
+import Markdown2Html from "./Base/Markdown2Html";
 
 
 export default {
   name: "LayoutFooter",
+  components: {Markdown2Html},
   props:['global'],
   methods:{getStrapiMedia}
 }

@@ -95,17 +95,12 @@ export default {
     };
   },
   async fetch() {
-    console.log(this.$i18n.localeProperties);
     let is_asset =
       this.$route.path.startsWith('/assets') ||
       this.$route.path.startsWith('/uploads');
     if (!is_asset) {
       this.global = await this.$strapi.find("global",{_locale:this.$i18n.locale});
       this.menus = await this.$strapi.find("menus",{_locale:this.$i18n.locale});
-      // if (!this.$auth.$storage.getLocalStorage('locals')){
-      //   this.locals=await this.$strapi.find("i18n/locals");
-      //   this.$auth.$storage.setLocalStorage('locals', this.locals)
-      // }
     }
   },
   // computed:{
