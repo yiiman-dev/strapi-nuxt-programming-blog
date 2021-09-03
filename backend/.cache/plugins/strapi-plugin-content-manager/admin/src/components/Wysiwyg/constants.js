@@ -66,7 +66,7 @@ export const CONTROLS = [
       className: 'code',
       hideLabel: true,
       handler: 'addSimpleBlockWithSelection',
-      text: '<pre class="line-numbers language-bash"><code>textToReplace</pre></code>',
+      text: '<pre class="line-numbers language-bash"><code>textToReplace</code></pre>',
     },
     {
       label: 'alert',
@@ -91,7 +91,7 @@ export const CONTROLS = [
       className: 'marked',
       hideLabel: false,
       handler: 'addSimpleBlockWithSelection',
-      text: '==textToReplace==',
+      text: '== textToReplace ==',
     },
 
     {
