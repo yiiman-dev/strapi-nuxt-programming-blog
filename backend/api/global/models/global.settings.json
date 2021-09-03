@@ -111,6 +111,15 @@
           "localized": false
         }
       }
+    },
+    "has_customize_panel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

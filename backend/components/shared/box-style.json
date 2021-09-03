@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_shared_box_styles",
+  "info": {
+    "name": "boxStyle",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "classBackground": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "dark",
+        "grey",
+        "theme",
+        "transparent",
+        "grediant"
+      ],
+      "default": "white",
+      "required": true
+    },
+    "hexBackground": {
+      "type": "string"
+    },
+    "hasRoundAnimation": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "patternBackground": {
+      "type": "enumeration",
+      "enum": [
+        "bg01",
+        "bg02",
+        "bg03",
+        "bg04",
+        "bg05",
+        "bg06",
+        "bg07",
+        "bg08",
+        "bg09",
+        "bg10",
+        "bg11",
+        "bg12"
+      ],
+      "required": false,
+      "default": "bg01"
+    }
+  }
+}

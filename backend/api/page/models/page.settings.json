@@ -52,9 +52,10 @@
         "sections.testimotional",
         "sections.logos",
         "sections.news",
-        "sections.services",
         "sections.faq",
-        "sections.projects"
+        "sections.projects",
+        "sections.hero",
+        "sections.services-box"
       ]
     },
     "seo": {
@@ -66,16 +67,6 @@
         }
       },
       "component": "shared.seo"
-    },
-    "Slider": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "sections.slider"
     },
     "is_homepage": {
       "pluginOptions": {

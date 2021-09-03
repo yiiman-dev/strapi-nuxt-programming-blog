@@ -15,7 +15,7 @@ class Strapi extends Hookable {
     this.$cookies = ctx.app.$cookies
     this.$http = ctx.$http.create({})
     this.$http.setToken(this.getToken(), 'Bearer')
-    this.$http.setBaseURL(runtimeConfig.url || 'http://localhost:1337')
+    this.$http.setBaseURL(runtimeConfig.url || 'http://192.168.1.101:1337')
     this.$http.onError((err) => {
       const { response: { data: { message: msg } } } = err
 

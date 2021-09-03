@@ -66,8 +66,34 @@ export const CONTROLS = [
       className: 'code',
       hideLabel: true,
       handler: 'addSimpleBlockWithSelection',
-      text: '```textToReplace```',
+      text: '<pre class="line-numbers language-bash"><code>textToReplace</pre></code>',
     },
+    {
+      label: 'alert',
+      style: 'Alert',
+      className: 'alert',
+      hideLabel: false,
+      handler: 'addSimpleBlockWithSelection',
+      text: "::: warning \n textToReplace \n :::",
+    },
+
+    {
+      label: '<short>',
+      style: 'CODE',
+      className: 'code',
+      hideLabel: false,
+      handler: 'addSimpleBlockWithSelection',
+      text: '`textToReplace`',
+    },
+{
+      label: 'marked',
+      style: 'Marked',
+      className: 'marked',
+      hideLabel: false,
+      handler: 'addSimpleBlockWithSelection',
+      text: '==textToReplace==',
+    },
+
     {
       label: 'img',
       style: 'IMG',

@@ -57,9 +57,10 @@
       "via": "projects",
       "model": "current-project-status"
     },
-    "project_language": {
+    "project_languages": {
+      "collection": "project-language",
       "via": "projects",
-      "model": "project-language"
+      "dominant": true
     },
     "technologies": {
       "via": "projects",
@@ -67,8 +68,8 @@
       "dominant": true
     },
     "company": {
-      "model": "company",
-      "via": "projects"
+      "via": "projects",
+      "model": "company"
     },
     "defaultPicture": {
       "model": "file",

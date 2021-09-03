@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "semat": {
+    "jobSide": {
       "pluginOptions": {
         "i18n": {
           "localized": true

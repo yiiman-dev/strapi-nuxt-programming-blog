@@ -5,7 +5,7 @@
     </nuxt-link>
     <div class="desc">
               <span v-if="project.project_categories.length>0">
-                <nuxt-link v-for="cat in project.project_categories" :to="'/projects/categories/'+cat.slug">
+                <nuxt-link v-bind:key="index"  v-for="(cat,index) in project.project_categories" :to="'/projects/categories/'+cat.slug">
                   {{ cat.title }} -
                 </nuxt-link>
                 {{ project.published_at }}

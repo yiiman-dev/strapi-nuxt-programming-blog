@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_services_boxes",
+  "info": {
+    "name": "servicesBox",
+    "icon": "charging-station",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.services"
+    },
+    "boxType": {
+      "type": "enumeration",
+      "enum": [
+        "Type1",
+        "Type2",
+        "Type3",
+        "Type4",
+        "Type5",
+        "Type6",
+        "Type7"
+      ],
+      "default": "Type1",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

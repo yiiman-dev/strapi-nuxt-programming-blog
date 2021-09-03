@@ -62,6 +62,4 @@ export default {
 }
 </script>
 
-<style scoped>
-@import 'assets/css/font-awesome.min.css';
-</style>
+

@@ -2,24 +2,29 @@ import Vue from 'vue'
 import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL } from 'ufo'
 
 import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
-import NuxtError from './components/nuxt-error.vue'
+import NuxtError from '../layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
+import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../assets/global/sass/bootstrap.sass'
 
-import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css'
+import '../assets/global/sass/animate.sass'
 
-import '../assets/css/animate.css'
+import '../assets/global/sass/fontawesome-all.sass'
 
-import '../assets/css/magnific-popup.css'
+import '../assets/global/sass/line-awesome.min.sass'
 
-import '../assets/css/owl.carousel.min.css'
+import '../assets/global/sass/magnific-popup.sass'
 
-import '../assets/css/owl.theme.default.min.css'
+import '../assets/global/sass/base.sass'
 
-import '../assets/css/flexslider.css'
+import '../assets/global/sass/shortcodes.sass'
 
-import '../assets/css/style.css'
+import '../assets/global/sass/style.sass'
+
+import '../assets/global/sass/responsive.sass'
+
+import '../assets/global/sass/color-customizer.sass'
 
 import _6f6c098b from '../layouts/default.vue'
 
@@ -58,7 +63,7 @@ export default {
       }
     }, [
       loadingEl,
-
+      h(NuxtBuildIndicator),
       transitionEl
     ])
   },
@@ -194,6 +199,10 @@ export default {
     },
 
     setLayout (layout) {
+      if(layout && typeof layout !== 'string') {
+        throw new Error('[nuxt] Avoid using non-string value as layout property.')
+      }
+
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

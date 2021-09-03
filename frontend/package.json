@@ -15,15 +15,35 @@
     "lint:fix": "eslint --ext .js,.vue . --fix"
   },
   "dependencies": {
-    "core-js": "^3.16.3",
+    "@nuxtjs/auth-next": "^5.0.0-1624817847.21691f1",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/strapi": "^0.1.6",
     "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.16.3",
+    "desandro-get-style-property": "^1.0.4",
+    "doc-ready": "^1.0.4",
+    "eventie": "^1.0.6",
     "graphql": "^14.5.8",
+    "isotope-layout": "^3.0.6",
     "jquery": "^3.6.0",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-attrs": "^4.0.0",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-deflist": "^2.0.3",
+    "markdown-it-div": "^1.1.0",
+    "markdown-it-emoji": "^2.0.0",
+    "markdown-it-footnote": "^3.0.2",
+    "markdown-it-ins": "^3.0.1",
+    "markdown-it-mark": "^3.0.1",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
     "moment": "^2.29.0",
     "nuxt": "^2.15.8",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "wolfy87-eventemitter": "^5.2.9",
+    "lightgallery": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -35,7 +55,9 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "7.16.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.1",
+    "node-sass": "^6.0.1"
   },
   "license": "MIT"
 }

@@ -1,32 +1,257 @@
 <template>
-  <!-- Testiominals -->
-  <div class="mcgill-testimonial testimonials bg-img bg-fixed" :data-background="getStrapiMedia(session.background?session.background.url:'')">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="section-head col-md-4">
-          <h4>{{ session.title }}</h4>
-          <p>{{session.content}}</p>
-        </div>
+  <div>
+    <!--testimonial start-->
 
-          <div class="owl-carousel owl-theme col-md-8">
-            <div v-for="item in session.testimotionals" class="item-box">
-            <span class="quote">
-              <img :src="getStrapiMedia('images/quot.png')" alt="">
-            </span>
-              <p>{{ item.description }}</p>
-              <div class="info">
-                <div class="author-img"> <img :src="item.Author?getStrapiMedia(item.Author.url):'#'" :alt="item.name"> </div>
-                <div class="cont">
-                  <h6>{{ item.name }}</h6> <span>{{ item.semat }}</span>
+
+    <section v-if="session.boxType==='Type1' && session.title.length===0">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-12">
+
+            <div id="testimonial-1" class="testimonial-carousel testimonial-1 carousel slide" data-ride="carousel" :data-interval="session.slideSpeed">
+              <!-- Wrapper for slides -->
+              <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12">
+                  <div class="carousel-inner">
+                    <div :class="index===0?'carousel-item active':'carousel-item'" v-for="(tes, index) in  session.testimotionals">
+                      <div class="testimonial style-1">
+                        <div class="testimonial-img">
+                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                        </div>
+                        <div class="testimonial-content">
+                          <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
+                          </div>
+                          <p>{{tes.description}}</p>
+                          <div class="testimonial-caption">
+                            <h5>{{ tes.name }}</h5>
+                            <label>{{ tes.jobSide }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Item -->
+                  </div>
+                  <!-- End Carousel Inner -->
+                </div>
+              </div>
+              <div class="controls">
+                <ul class="nav">
+                  <li data-target="#testimonial-1" :data-slide-to="index" class="active" v-for="(tes, index) in  session.testimotionals">
+                    <a href="#">
+                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- End Carousel -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pos-r" v-if="session.boxType==='Type1' && session.title.length>0">
+      <div class="round-anim"></div>
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-12 order-lg-12">
+            <div class="section-title mb-0">
+              <h2 class="title" v-html="session.title"></h2>
+              <div class="title-bdr">
+                <div class="left-bdr"></div>
+                <div class="right-bdr"></div>
+              </div>
+              <p class="text-black" v-html="session.content"></p>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-12 order-lg-1 md-mt-5">
+
+            <div id="testimonial-1" class="testimonial-carousel testimonial-1 carousel slide" data-ride="carousel" :data-interval="session.slideSpeed">
+              <!-- Wrapper for slides -->
+              <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12">
+                  <div class="carousel-inner">
+                    <div :class="index===0?'carousel-item active':'carousel-item'" v-for="(tes, index) in  session.testimotionals">
+                      <div class="testimonial style-1">
+                        <div class="testimonial-img">
+                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                        </div>
+                        <div class="testimonial-content">
+                          <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
+                          </div>
+                          <p>{{tes.description}}</p>
+                          <div class="testimonial-caption">
+                            <h5>{{ tes.name }}</h5>
+                            <label>{{ tes.jobSide }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Item -->
+                  </div>
+                  <!-- End Carousel Inner -->
+                </div>
+              </div>
+              <div class="controls">
+                <ul class="nav">
+                  <li data-target="#testimonial-1" :data-slide-to="index" class="active" v-for="(tes, index) in  session.testimotionals">
+                    <a href="#">
+                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section  v-if="session.boxType==='Type2' && session.title.length===0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+
+            <div class="owl-carousel" data-dots="false" data-nav="true" data-items="1" data-autoplay="true"  :data-interval="session.slideSpeed/10" :data-smartSpeed="session.slideSpeed/10">
+              <div class="item"  v-for="(tes, index) in  session.testimotionals">
+                <div class="testimonial style-2">
+                  <div class="testimonial-img">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                  </div>
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>{{ tes.description }}</p>
+                    <div class="testimonial-caption">
+                      <h5>{{ tes.name }}</h5>
+                      <label>{{ tes.jobSide }}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pos-r"  v-if="session.boxType==='Type2' && session.title.length>0">
+      <div class="round-anim"></div>
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-12 order-lg-12">
+            <div class="section-title mb-0">
+              <h2 class="title" v-html="session.title"></h2>
+              <div class="title-bdr">
+                <div class="left-bdr"></div>
+                <div class="right-bdr"></div>
+              </div>
+              <p class="text-black" v-html="session.content"></p>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-12 order-lg-1 md-mt-5">
+
+            <div class="owl-carousel" data-dots="false" data-nav="true" data-items="1" data-autoplay="true"  :data-interval="session.slideSpeed/10" :data-smartSpeed="session.slideSpeed/10">
+              <div class="item"  v-for="(tes, index) in  session.testimotionals">
+                <div class="testimonial style-2">
+                  <div class="testimonial-img">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                  </div>
+                  <div class="testimonial-content">
+                    <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>{{ tes.description }}</p>
+                    <div class="testimonial-caption">
+                      <h5>{{ tes.name }}</h5>
+                      <label>{{ tes.jobSide }}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section  v-if="session.boxType==='Type3' && session.title.length===0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="owl-carousel" data-items="3 " data-md-items="2" data-sm-items="1" data-autoplay="true"  :data-interval="session.slideSpeed/10" :data-smartSpeed="session.slideSpeed/10">
+              <div class="item" v-for="(tes, index) in  session.testimotionals">
+                <div class="testimonial style-3">
+                  <div class="testimonial-caption">
+                    <h5>{{tes.name}}</h5>
+                    <label>{{ tes.jobSide }}</label>
+                  </div>
+                  <div class="testimonial-img">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                  </div>
+                  <div class="testimonial-content">
+                    <p v-html="tes.description"></p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-
+        </div>
       </div>
-    </div>
+    </section>
+
+
+
+    <section class="pos-r"  v-if="session.boxType==='Type3' && session.title.length>0">
+      <div class="round-anim"></div>
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-5 col-md-12 order-lg-12">
+            <div class="section-title mb-0">
+              <h2 class="title" v-html="session.title"></h2>
+              <div class="title-bdr">
+                <div class="left-bdr"></div>
+                <div class="right-bdr"></div>
+              </div>
+              <p class="text-black" v-html="session.content"></p>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-12 order-lg-1 md-mt-5">
+
+            <div class="owl-carousel" data-items="3 " data-md-items="2" data-sm-items="1" data-autoplay="true"  :data-interval="session.slideSpeed/10" :data-smartSpeed="session.slideSpeed/10">
+              <div class="item" v-for="(tes, index) in  session.testimotionals">
+                <div class="testimonial style-3">
+                  <div class="testimonial-caption">
+                    <h5>{{tes.name}}</h5>
+                    <label>{{ tes.jobSide }}</label>
+                  </div>
+                  <div class="testimonial-img">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" :alt="tes.name">
+                  </div>
+                  <div class="testimonial-content">
+                    <p v-html="tes.description"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--testimonial end-->
   </div>
+
+
+
+
 
 </template>
 
@@ -41,6 +266,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
+.testimonial.style-3 .testimonial-img img {
+
+  height: 100px;
+  width: 100px;
+}
 </style>
+<style >
+@import "assets/global/css/owl-carousel/owl.carousel.css";
+</style>
+
