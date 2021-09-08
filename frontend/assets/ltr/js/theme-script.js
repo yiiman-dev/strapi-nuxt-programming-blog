@@ -143,6 +143,7 @@ export default ()=>{
     HT Owl Carousel
   --------------------------------------*/
   function owlcarousel() {
+
     jQuery('.owl-carousel').each( function() {
       var $carousel = jQuery(this);
       $carousel.owlCarousel({
@@ -164,6 +165,7 @@ export default ()=>{
           1200:{items: $carousel.data("items")}
         },
       });
+
     });
   };
 
@@ -218,10 +220,10 @@ export default ()=>{
   --------------------------------------*/
   function isotope() {
     // init Isotope
-    var $grid = $('.grid').isotope({
-      itemSelector: '.grid-item',
-      layoutMode: 'fitRows',
-    });
+    // var $grid = $('.grid').isotope({
+    //   itemSelector: '.grid-item',
+    //   layoutMode: 'fitRows',
+    // });
 
     // filter functions
     var filterFns = {
@@ -242,7 +244,7 @@ export default ()=>{
       var filterValue = jQuery( this ).attr('data-filter');
       // use filterFn if matches value
       filterValue = filterFns[ filterValue ] || filterValue;
-      $grid.isotope({ filter: filterValue });
+      // $grid.isotope({ filter: filterValue });
     });
 
 
@@ -535,12 +537,13 @@ export default ()=>{
     });
     wow.init();
   }
-
+console.log('loaded');
 
   /*------------------------------------
     HT Window load and functions
   --------------------------------------*/
   jQuery(document).ready(function() {
+    console.log('ready');
     fullScreen(),
       menu(),
       sidemenu(),
@@ -568,7 +571,7 @@ export default ()=>{
 
   jQuery(window).on('load', function() {
     preloader(),
-      isotope(),
+      // isotope(),
       wowanimation();
   });
 

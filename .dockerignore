@@ -23,3 +23,5 @@ Dockerfile
 .package-lock.json
 .idea
 .git
+.env
+frontend/.env

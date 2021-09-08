@@ -8,12 +8,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-8 col-md-12">
             <div class="section-title">
-              <h2 class="title" v-html="session.title"></h2>
+              <h2 class="title" v-if="session.title" v-html="session.title"/>
               <div class="title-bdr">
                 <div class="left-bdr"></div>
                 <div class="right-bdr"></div>
               </div>
-              <p v-html="session.subtitle"></p>
+              <p v-if="session.subtitle" v-html="session.subtitle"/>
             </div>
           </div>
         </div>
@@ -21,21 +21,21 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title">
+                <img class="img-fluid w-100 article-img" :src="item.image?getStrapiMedia(item.image.url):''"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-meta">
                   <ul class="list-inline">
                     <li><i class="la la-calendar mr-1"></i> {{ item.published_at }}</li>
-                    <li><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
+                    <li v-if="item.author && item.author.name"><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
                   </ul>
                 </div>
                 <div class="post-title">
-                  <h4><p-link :to="'/blog/'+item.slug">{{item.title}}</p-link></h4>
+                  <h4 v-if="item.title"><p-link v-if="item.slug" :to="'/blog/'+item.slug" v-html="item.title"/></h4>
                 </div>
                 <div class="post-categories mt-4">
                   <ul class="list-inline">
-                    <li v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug">{{ cat.name }}</p-link></li>
+                    <li v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug" v-if="cat.name && cat.slug" v-html="cat.name"/></li>
                   </ul>
                 </div>
               </div>
@@ -51,12 +51,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-8 col-md-12">
             <div class="section-title">
-              <h2 class="title" v-html="session.title"></h2>
+              <h2 v-if="session.title" class="title" v-html="session.title"/>
               <div class="title-bdr">
                 <div class="left-bdr"></div>
                 <div class="right-bdr"></div>
               </div>
-              <p v-html="session.subtitle"></p>
+              <p v-if="session.subtitle" v-html="session.subtitle"/>
             </div>
           </div>
         </div>
@@ -64,21 +64,21 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-2">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-categories mt-4">
                   <ul class="list-inline">
-                    <li v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug">{{ cat.name }}</p-link></li>
+                    <li v-for="(cat,catIndex) in item.categories"><p-link v-if="cat.slug && cat.name" :to="'/blog/categories/'+cat.slug" v-html="cat.name"/></li>
                   </ul>
                 </div>
                 <div class="post-title">
-                  <h4><p-link :to="'/blog/'+item.slug">{{item.title}}</p-link></h4>
+                  <h4 v-if="item.slug && item.title"><p-link :to="'/blog/'+item.slug" v-html="item.title"/></h4>
                 </div>
                 <div class="post-meta">
                   <ul class="list-inline">
                     <li><i class="la la-calendar mr-1"></i> {{ item.published_at }}</li>
-                    <li><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
+                    <li v-if="item.author && item.author.name"><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
                   </ul>
                 </div>
               </div>
@@ -94,12 +94,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-8 col-md-12">
             <div class="section-title">
-              <h2 class="title" v-html="session.title"></h2>
+              <h2 v-if="session.title" class="title" v-html="session.title"/>
               <div class="title-bdr">
                 <div class="left-bdr"></div>
                 <div class="right-bdr"></div>
               </div>
-              <p v-html="session.subtitle"></p>
+              <p v-if="session.subtitle" v-html="session.subtitle"/>
             </div>
           </div>
         </div>
@@ -107,21 +107,21 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-3">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-meta">
                   <ul class="list-inline">
                     <li><i class="la la-calendar mr-1"></i> {{ item.published_at }}</li>
-                    <li><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
+                    <li v-if="item.author && item.author.name"><i class="la la-user mr-1"></i>{{ item.author.name }}</li>
                   </ul>
                 </div>
                 <div class="post-title">
-                  <h4><p-link :to="'/blog/'+item.slug">{{item.title}}</p-link></h4>
+                  <h4 v-if="item.title && item.slug"><p-link :to="'/blog/'+item.slug" v-html="item.title" /></h4>
                 </div>
                 <div class="post-categories mt-4">
                   <ul class="list-inline">
-                    <li v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug">{{ cat.name }}</p-link></li>
+                    <li v-for="(cat,catIndex) in item.categories"><p-link v-if="cat.slug && cat.name" :to="'/blog/categories/'+cat.slug" v-html="cat.name"/></li>
                   </ul>
                 </div>
               </div>
@@ -137,12 +137,12 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-8 col-md-12">
             <div class="section-title">
-              <h2 class="title" v-html="session.title"></h2>
+              <h2 v-if="session.title" class="title" v-html="session.title"/>
               <div class="title-bdr">
                 <div class="left-bdr"></div>
                 <div class="right-bdr"></div>
               </div>
-              <p v-html="session.subtitle"></p>
+              <p v-if="session.subtitle" v-html="session.subtitle"></p>
             </div>
           </div>
         </div>
@@ -150,21 +150,21 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-4">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-categories mt-4">
                   <ul class="list-inline">
-                    <li v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug">{{ cat.name }}</p-link></li>
+                    <li v-if="cat.slug && cat.name" v-for="(cat,catIndex) in item.categories"><p-link :to="'/blog/categories/'+cat.slug" v-html="cat.name"/></li>
                   </ul>
                 </div>
                 <div class="post-title">
-                  <h4><p-link :to="'/blog/'+item.slug">{{item.title}}</p-link></h4>
+                  <h4 v-if="item.slug && item.title"><p-link :to="'/blog/'+item.slug" v-html="item.title"/></h4>
                 </div>
                 <div class="post-meta">
                   <ul class="list-inline">
                     <li><i class="la la-calendar mr-1"></i> {{ item.published_at }}</li>
-                    <li><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
+                    <li v-if="item.author && item.author.name"><i class="la la-user mr-1"></i> {{ item.author.name }}</li>
                   </ul>
                 </div>
               </div>

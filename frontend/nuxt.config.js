@@ -1,9 +1,9 @@
 import webpack from "webpack"
 
-const strapiBaseUri = process.env.API_URL || "http://192.168.1.101:1337";
+const strapiBaseUri = process.env.API_URL;
 const port = process.env.NUXT_PORT || 5000;
 const host = process.env.NUXT_HOST || '0.0.0.0';
-
+console.log(process.env);
 export default {
   target: "server",
   buildDir: 'nuxt-dist',
@@ -29,43 +29,41 @@ export default {
       }
     },
     extractCSS: true,
-    vendor: ['jquery', 'bootstrap', 'theme'],
+    // vendor: ['jquery', 'bootstrap', 'theme'],
     plugins: [
 
-      new webpack.ProvidePlugin({
-        jQuery: 'jquery',
-        $: 'jquery',
-        'window.jQuery': 'jquery',
-        'window.jquery': 'jquery',
-        'window.$': 'jquery',
-      })
+      // new webpack.ProvidePlugin({
+      //   jQuery: 'jquery',
+      //   $: 'jquery',
+      //   'window.jQuery': 'jquery',
+      //   'window.jquery': 'jquery',
+      //   'window.$': 'jquery',
+      // })
     ]
   },
   env: {
-    API_URL: strapiBaseUri,
     NUXT_PORT: port,
     NUXT_HOST: host
   },
   head: {
     script: [
-      // {src: "/js/common-theme.js"},
-      // {src: "/js/jquery.nice-select.js"},
-      // {src: "/js/owl-carousel/owl.carousel.min.js"},
-      // {src: "/js/magnific-popup/jquery.magnific-popup.min.js"},
-      // {src: "/js/counter/counter.js"},
-      // {src: "/js/isotope/isotope.pkgd.min.js"},
-      // {src: "/js/particles.min.js"},
-      // {src: "/js/vivus/pathformer.js"},
-      // {src: "/js/vivus/vivus.js"},
-      // {src: "/js/raindrops/jquery-ui.js"},
-      // {src: "/js/raindrops/raindrops.js"},
-      // {src: "/js/countdown/jquery.countdown.min.js"},
-      // {src: "/js/contact-form/contact-form.js"},
+      {src: "/js/common-theme.js"},
+      {src: "/js/jquery.nice-select.js"},
+      {src: "/js/owl-carousel/owl.carousel.min.js"},
+      {src: "/js/magnific-popup/jquery.magnific-popup.min.js"},
+      {src: "/js/counter/counter.js"},
+      {src: "/js/isotope/isotope.pkgd.min.js"},
+      {src: "/js/particles.min.js"},
+      {src: "/js/vivus/pathformer.js"},
+      {src: "/js/vivus/vivus.js"},
+      {src: "/js/raindrops/jquery-ui.js"},
+      {src: "/js/raindrops/raindrops.js"},
+      {src: "/js/countdown/jquery.countdown.min.js"},
+      {src: "/js/contact-form/contact-form.js"},
       // {src: "https://maps.googleapis.com/maps/api/js"},
       // {src: "/js/map.js"},
       {src: "/js/wow.min.js"},
-      // {src: "/js/color-customize/color-customizer.js"},
-      // {src:"/js/main.js",type: 'module', defer: true},
+      {src: "/js/color-customize/color-customizer.js"},
     ],
     meta: [
       {charset: "utf-8"},
@@ -93,10 +91,10 @@ export default {
     '@assets/global/sass/responsive.sass',
     '@assets/global/sass/color-customizer.sass',
   ],
-  plugins: [
-    '~plugins/theme.js',
-    "~/plugins/lightGallery.js"
-  ],
+  // plugins: [
+  //   '~plugins/theme.js',
+  //   "~/plugins/lightGallery.js"
+  // ],
 
 
   modules: [
