@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
-              <img class="img-fluid radius w-100" :src="getStrapiMedia(project[0].defaultPicture.url)"
+              <img class="img-fluid radius w-100" :src="getStrapiMedia(project[0].defaultPicture.url,$config)"
                    :alt="project[0].title">
             </div>
             <div class="col-lg-5 col-md-12 md-mt-5">
@@ -68,7 +68,7 @@
             <div class="col-md-12">
               <ul>
                 <li v-for="tech in project[0].technologies">
-                  <img :src="getStrapiMedia(tech.logo.url)"
+                  <img :src="getStrapiMedia(tech.logo.url,$config)"
                        class="img-fluid logo-tech box-shadow rounded-circle mb-3" :alt="tech.name">
                   <div class="flip-back">{{ tech.name }}</div>
                 </li>

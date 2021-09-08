@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7 col-md-12">
-            <h1 class="title">{{article[0].title}}</h1>
+            <h1 v-if="article[0].title" class="title">{{article[0].title}}</h1>
             <p></p>
           </div>
           <div class="col-lg-5 col-md-12 text-lg-right md-mt-3">
@@ -40,20 +40,20 @@
               <div class="left-side">
                 <div class="post">
                   <div class="post-image">
-                    <img class="img-fluid" :src="article[0].image?getStrapiMedia(article[0].image.url):''" :alt="article[0].title">
+                    <img class="img-fluid" :src="article[0].image?media(article[0].image.url,$config):''" :alt="article[0].title?article[0].title:''">
                   </div>
                   <div class="post-desc">
                     <div class="post-meta">
                       <ul class="list-inline">
                         <li><i class="la la-calendar mr-1"></i> {{ article[0].published_at }}</li>
-                        <li><i class="la la-user mr-1"></i> {{ article[0].author.name }}</li>
-                        <li><i class="la la-user mr-1"></i> {{ article[0].categories[0].name }}</li>
+                        <li v-if="article[0].author && article[0].author.name"><i class="la la-user mr-1"></i> {{ article[0].author.name }}</li>
+                        <li v-if="article[0].categories && article[0].categories[0] && article[0].categories[0].name"><i class="la la-user mr-1"></i> {{ article[0].categories[0].name }}</li>
                       </ul>
                     </div>
                     <div class="post-title">
-                      <h2>{{ article[0].title }}</h2>
+                      <h2 v-if="article[0].title">{{ article[0].title }}</h2>
                     </div>
-                    <Markdown2Html :content="article[0].content"/>
+                    <Markdown2Html v-if="article[0].content" :content="article[0].content"/>
                     <div v-if="false" class="blog-share d-sm-flex justify-content-between mt-5">
                       <div class="social-icons">
                         <h4 class="mb-2">{{ $t('Share in') }}  </h4>
@@ -163,16 +163,16 @@
               </div>
               <div class="widget">
                 <div class="widget-about mt-5">
-                  <img class="img-fluid box-shadow rounded-circle mb-3 img-100" :src="getStrapiMedia(article[0].author.picture.url)" :alt="article[0].author.name">
-                  <h4>{{ article[0].author.name }}</h4>
-                  <Markdown2Html :content="article[0].author.biography"/>
+                  <img class="img-fluid box-shadow rounded-circle mb-3 img-100" :src="media(article[0].author.picture.url,$config)" :alt="(article[0].author && article[0].author.name)?article[0].author.name:''">
+                  <h4 v-if="article[0].author && article[0].author.name">{{ article[0].author.name }}</h4>
+                  <Markdown2Html v-if="article[0].author && article[0].author.biography" :content="article[0].author.biography"/>
                 </div>
               </div>
               <div class="widget">
                 <h5 class="widget-title">{{ $t('categories') }} </h5>
                 <ul class="widget-categories list-unstyled">
                   <li v-for="(category,index) in article[0].categories">
-                    <p-link :to="'/blog/categories/'+category.slug">{{ category.name }} </p-link>
+                    <p-link v-if="category.slug && category.name" :to="'/blog/categories/'+category.slug">{{ category.name }} </p-link>
                   </li>
 
                 </ul>
@@ -183,9 +183,9 @@
                   <ul class="list-unstyled">
                     <li class="mb-3" v-for="item in recent">
                       <div class="recent-post-thumb">
-                        <img class="img-fluid" :src="getStrapiMedia(item.image.url)" :alt="item.title">
+                        <img class="img-fluid" :src="media(item.image.url,$config)" :alt="item.title?item.title:''">
                       </div>
-                      <div class="recent-post-desc"> <p-link :to="'/blog/'+item.slug">{{ item.title }}</p-link>
+                      <div class="recent-post-desc"> <p-link v-if="item.title && item.slug" :to="'/blog/'+item.slug" v-html="item.title"/>
                         <div class="post-date">{{item.published_at}}
                         </div>
                       </div>
@@ -226,12 +226,13 @@
 </template>
 
 <script>
-import {getStrapiMedia} from "../../utils/medias";
+import {getStrapiMedia} from "../../utils/medias.js";
 import { sectionBgImg,sectionClasses,sectionBgColor} from "../../helpers/functions";
 import PLink from "../../components/Base/p-link";
 import Markdown2Html from "../../components/Base/Markdown2Html";
 import  main from "/assets/global/js/runTheme"
 import Layout from "../../components/Base/Layout";
+console.log('page loaded');
 export default {
   name: "blogSlug",
   components: {Layout, Markdown2Html, PLink},
@@ -241,10 +242,11 @@ export default {
     }
   },
   serverPrefetch() {
-    if (this.article!=null){
+    if (this.article!=null && this.article[0] && this.article[0].title){
       this.pageTitle=this.article[0].title;
     }
   },
+
   head(){
     return{
       title: this.pageTitle
@@ -257,6 +259,9 @@ export default {
     }
   },
   methods:{
+    media(url,$config){
+      return getStrapiMedia(url,$config);
+    },
     getStrapiMedia,
     sectionBgImg,
     sectionClasses,

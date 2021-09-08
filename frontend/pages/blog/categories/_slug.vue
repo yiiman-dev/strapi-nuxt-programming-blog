@@ -45,7 +45,7 @@
             <div class="col-lg-8 col-md-12 order-lg-12">
               <div v-for="(item,index) in articles" :class="index===0?'post':'post mt-8'">
                 <div class="post-image">
-                  <img class="img-fluid h-100 w-100" :src="item.image?getStrapiMedia(item.image.url):''"
+                  <img class="img-fluid h-100 w-100" :src="item.image?getStrapiMedia(item.image.url,$config):''"
                        :alt="item.title">
                 </div>
                 <div class="post-desc">
@@ -130,6 +130,7 @@ export default {
       this.pageTitle = this.category[0].name;
     }
   },
+
   head() {
     return {
       title: this.pageTitle

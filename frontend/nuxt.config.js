@@ -45,6 +45,12 @@ export default {
     NUXT_PORT: port,
     NUXT_HOST: host
   },
+  publicRuntimeConfig: {
+    API_URL: process.env.API_URL
+  },
+  // privateRuntimeConfig: {
+  //   apiSecret: process.env.API_SECRET
+  // },
   head: {
     script: [
       {src: "/js/common-theme.js"},

@@ -16,7 +16,7 @@
                     <div :class="index===0?'carousel-item active':'carousel-item'" v-for="(tes, index) in  session.testimotionals">
                       <div class="testimonial style-1">
                         <div class="testimonial-img">
-                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                         </div>
                         <div class="testimonial-content">
                           <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
@@ -38,7 +38,7 @@
                 <ul class="nav">
                   <li data-target="#testimonial-1" :data-slide-to="index" :class="index===0?'active':''" v-for="(tes, index) in  session.testimotionals">
                     <a href="#">
-                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                     </a>
                   </li>
                 </ul>
@@ -75,7 +75,7 @@
                     <div :class="index===0?'carousel-item active':'carousel-item'" v-for="(tes, index) in  session.testimotionals">
                       <div class="testimonial style-1">
                         <div class="testimonial-img">
-                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                          <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                         </div>
                         <div class="testimonial-content">
                           <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
@@ -97,7 +97,7 @@
                 <ul class="nav">
                   <li data-target="#testimonial-1" :data-slide-to="index" :class="index===0?'active':''" v-for="(tes, index) in  session.testimotionals">
                     <a href="#">
-                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                      <img class="img-fluid" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                     </a>
                   </li>
                 </ul>
@@ -119,7 +119,7 @@
               <div class="item"  v-for="(tes, index) in  session.testimotionals">
                 <div class="testimonial style-2">
                   <div class="testimonial-img">
-                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                   </div>
                   <div class="testimonial-content">
                     <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
@@ -159,7 +159,7 @@
               <div class="item"  v-for="(tes, index) in  session.testimotionals">
                 <div class="testimonial style-2">
                   <div class="testimonial-img">
-                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                   </div>
                   <div class="testimonial-content">
                     <div class="testimonial-quote"><i class="fas fa-quote-left"></i>
@@ -192,7 +192,7 @@
                     <label v-if="tes.jobSide && tes.jobSide.length>0" v-html="tes.jobSide"/>
                   </div>
                   <div class="testimonial-img">
-                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                   </div>
                   <div class="testimonial-content">
                     <p v-if="tes.description" v-html="tes.description"/>
@@ -231,7 +231,7 @@
                     <label v-if="tes.jobSide && tes.jobSide.length>0" v-html="tes.jobSide"/>
                   </div>
                   <div class="testimonial-img">
-                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url)" v-bind:alt="tes.name?tes.name:''">
+                    <img class="img-center" :src="getStrapiMedia(tes.Author.formats.thumbnail.url,$config)" v-bind:alt="tes.name?tes.name:''">
                   </div>
                   <div class="testimonial-content">
                     <p v-if="tes.description" v-html="tes.description"/>

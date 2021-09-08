@@ -38,6 +38,7 @@ export default {
       pages: await $strapi.find("pages",{is_homepage:true,_locale:i18n.locale}),
     };
   },
+
   methods:{getStrapiMedia},
   mounted() {
     main(this)

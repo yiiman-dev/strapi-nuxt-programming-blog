@@ -13,7 +13,7 @@
           <div class="col-md col-sm-4 xs-mt-3 sm-mt-3" v-bind:key="index" v-for="(item,index) in session.companies">
             <div class="client-logo">
               <p-link :to="item.site_url.length>0?'/company/'+item.slug:'#'">
-                <img class="img-center" :src="getStrapiMedia(item.logo.url)" :alt="item.company_name">
+                <img class="img-center" :src="getStrapiMedia(item.logo.url,$config)" :alt="item.company_name">
               </p-link>
             </div>
           </div>
@@ -35,7 +35,7 @@
               <div class="item" v-bind:key="index" v-for="(item,index) in session.companies">
                 <div class="client-logo">
                   <p-link :to="item.site_url.length>0?'/company/'+item.slug:'#'">
-                    <img class="img-center" :src="getStrapiMedia(item.logo.url)" :alt="item.company_name">
+                    <img class="img-center" :src="getStrapiMedia(item.logo.url,$config)" :alt="item.company_name">
                   </p-link>
                 </div>
               </div>
@@ -67,5 +67,7 @@ export default {
 </script>
 
 <style scoped>
-
+.client-logo .img-center{
+  height: 100px;
+}
 </style>

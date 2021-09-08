@@ -8,7 +8,7 @@
           <div class="row align-items-center">
             <div class="col-lg-4 col-md-6">
               <div class="footer-logo mb-3">
-                <img id="footer-logo-white-img" v-if="global.footerLogo" :src="getStrapiMedia(global.footerLogo.url)" class="img-center" :alt="global.siteName">
+                <img id="footer-logo-white-img" v-if="global.footerLogo" :src="getStrapiMedia(global.footerLogo.url,$config)" class="img-center" :alt="global.siteName">
               </div>
               <Markdown2Html v-if="global.footerDescription" class="mb-0" :content="global.footerDescription"/>
             </div>

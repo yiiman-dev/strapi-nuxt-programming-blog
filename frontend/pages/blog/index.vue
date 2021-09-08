@@ -40,7 +40,7 @@
             <div class="col-lg-8 col-md-12 order-lg-12">
               <div v-for="(item,index) in articles" :class="index===0?'post':'post mt-8'">
                 <div class="post-image">
-                  <img class="img-fluid h-100 w-100" :src="item.image?getStrapiMedia(item.image.url):''" :alt="item.title">
+                  <img class="img-fluid h-100 w-100" :src="item.image?getStrapiMedia(item.image.url,$config):''" :alt="item.title">
                 </div>
                 <div class="post-desc">
                   <div class="post-meta">
@@ -100,7 +100,7 @@
                   <ul class="list-unstyled">
                     <li class="mb-3" v-for="item in recent">
                       <div class="recent-post-thumb">
-                        <img class="img-fluid" :src="getStrapiMedia(item.image.url)" :alt="item.title">
+                        <img class="img-fluid" :src="getStrapiMedia(item.image.url,$config)" :alt="item.title">
                       </div>
                       <div class="recent-post-desc"> <p-link :to="'/blog/'+item.slug">{{ item.title }}</p-link>
                         <div class="post-date">{{item.published_at}}
@@ -147,6 +147,7 @@ export default {
   data(){
     return {q :''}
   },
+
   async asyncData({$strapi,i18n}) {
     return {
       articles: await $strapi.find('articles', {_limit: 20,_locale:i18n.locale}),

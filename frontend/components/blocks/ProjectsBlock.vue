@@ -28,7 +28,7 @@
             <div class="grid-sizer"></div>
             <div v-for="(project,index) in session.projects" :class="calculateClass(project)">
               <div class="portfolio-item">
-                <img class="img-center w-100" :src="getStrapiMedia(project.defaultPicture.url)" :alt="project.name?project.name:''">
+                <img class="img-center w-100" :src="getStrapiMedia(project.defaultPicture.url,$config)" :alt="project.name?project.name:''">
                 <p-link v-if="project.slug?project.slug:''" class="popup-img" :to="'/projects/'+project.slug"> <i class="la la-plus"></i></p-link>
                 <div class="portfolio-title">
                   <h4 v-if="project.name && project.slug"><p-link :to="'/projects/'+project.slug" v-html="project.name"/></h4>

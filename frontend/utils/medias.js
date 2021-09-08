@@ -1,11 +1,14 @@
-export function getStrapiMedia(url) {
+import * as process from "process";
+export function getStrapiMedia(url,$config=null) {
   // Check if URL is a local path
-  console.log('url:');
-  console.log(url);
-  console.log(process.env.API_URL);
+
   if (url.startsWith("/")) {
     // Prepend Strapi address
-    return `${process.env.API_URL}${url}`;
+    if ($config!=null){
+      return $config.API_URL+url;
+    }else{
+      return process.env.API_URL+url;
+    }
   }
   // Otherwise return full URL
   return url;

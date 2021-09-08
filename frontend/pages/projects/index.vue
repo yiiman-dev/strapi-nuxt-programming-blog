@@ -103,6 +103,7 @@ export default {
     }
 
   },
+
   methods: {
     getStrapiMedia,
     async serve() {

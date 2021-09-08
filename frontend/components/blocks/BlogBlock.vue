@@ -21,7 +21,7 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="item.image?getStrapiMedia(item.image.url):''"  :alt="item.title?item.title:''">
+                <img class="img-fluid w-100 article-img" :src="item.image?getStrapiMedia(item.image.url,$config):''"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-meta">
@@ -64,7 +64,7 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-2">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url,$config)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-categories mt-4">
@@ -107,7 +107,7 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-3">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url ,$config)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-meta">
@@ -150,7 +150,7 @@
           <div  v-for="(item,index) in articles" v-bind:key="index" class="col-lg-4 col-md-12 md-mt-5">
             <div class="post style-4">
               <div class="post-image">
-                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url)"  :alt="item.title?item.title:''">
+                <img class="img-fluid w-100 article-img" :src="getStrapiMedia(item.image.url,$config)"  :alt="item.title?item.title:''">
               </div>
               <div class="post-desc">
                 <div class="post-categories mt-4">
