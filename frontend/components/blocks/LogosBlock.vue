@@ -12,7 +12,7 @@
         <div class="row align-items-center mt-4">
           <div class="col-md col-sm-4 xs-mt-3 sm-mt-3" v-bind:key="index" v-for="(item,index) in session.companies">
             <div class="client-logo">
-              <p-link :to="item.site_url.length>0?'/company/'+item.slug:'#'">
+              <p-link :to="(item.site_url && item.site_url.length)>0?'/company/'+item.slug:'#'">
                 <img class="img-center" :src="getStrapiMedia(item.logo.url,$config)" :alt="item.company_name">
               </p-link>
             </div>
@@ -34,7 +34,7 @@
                  data-autoplay="true">
               <div class="item" v-bind:key="index" v-for="(item,index) in session.companies">
                 <div class="client-logo">
-                  <p-link :to="item.site_url.length>0?'/company/'+item.slug:'#'">
+                  <p-link :to="(item.site_url && item.site_url.length)>0?'/company/'+item.slug:'#'">
                     <img class="img-center" :src="getStrapiMedia(item.logo.url,$config)" :alt="item.company_name">
                   </p-link>
                 </div>

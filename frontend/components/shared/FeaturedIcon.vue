@@ -3,8 +3,8 @@
     <div class="featured-icon" v-if="icon.startsWith('fa:')">
       <i :class="replaceAt(icon,'fa:','')"></i>
     </div>
-    <div class="featured-icon" v-if="icon.startsWith('svg:')">
-      {{replaceAt(icon,'svg:','')}}
+    <div class="featured-icon" v-if="icon.startsWith('svg:')" v-html="replaceAt(icon,'svg:','')">
+
     </div>
   </div>
 </template>

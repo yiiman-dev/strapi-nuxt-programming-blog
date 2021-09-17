@@ -48,6 +48,7 @@ export default {
   publicRuntimeConfig: {
     API_URL: process.env.API_URL
   },
+
   // privateRuntimeConfig: {
   //   apiSecret: process.env.API_SECRET
   // },

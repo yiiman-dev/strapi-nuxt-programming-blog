@@ -75,7 +75,7 @@
         }
       },
       "type": "boolean",
-      "unique": true,
+      "unique": false,
       "private": true
     }
   }

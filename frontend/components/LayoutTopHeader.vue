@@ -4,7 +4,7 @@
 
   <header id="site-header" class="header header-3">
     <div id="header-wrap">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <!-- Navbar -->

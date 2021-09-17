@@ -74,11 +74,17 @@ export default {
   components: { HeroSection, LayoutTopHeader, LayoutFooter, NuxtLogo, LayoutSideBar},
 
   head() {
-
-    const {defaultSeo, favicon, siteName} = this.global;
+    const {defaultSeo, favicon, siteName,globalJS} = this.global;
+    let JSTags=[];
+    if (this.global.GlobalJS){
+      for (const jsTagsKey in this.global.GlobalJS) {
+        JSTags.push({
+          vmid:this.global.GlobalJS[jsTagsKey].name,
+          innerHTML:this.global.GlobalJS[jsTagsKey].content
+        })
+      }
+    }
     // Merge default and article-specific SEO data
-
-
     return {
       bodyAttrs: {
         class: this.$i18n.localeProperties.layout
@@ -92,8 +98,11 @@ export default {
           href: getStrapiMedia(favicon.url),
         },
       ],
+      script: JSTags,
+      __dangerouslyDisableSanitizers: ['script'],
     };
   },
+
   async fetch() {
     let is_asset =
       this.$route.path.startsWith('/assets') ||
@@ -116,13 +125,13 @@ export default {
 
       global: {},
       categories: [],
-      title: 'YiiMan',
-      subtitle: 'YiiMan',
+      title: '',
+      subtitle: '',
       list: [
         {to: '/', title: 'about', icon: 'star', is_active: false}
       ],
       locals:[],
-      cell_phone: '+989353466620',
+      cell_phone: '',
       copywrite: global.copywrite_text
     };
   }
