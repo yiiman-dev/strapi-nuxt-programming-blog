@@ -10,8 +10,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7 col-md-12">
-            <h1 class="title">{{ project[0].name }}</h1>
-            <p>{{ project[0].project_categories[0].name }}</p>
+            <h1 class="title">{{ project[0].name?project[0].name:'-' }}</h1>
+            <p>{{ project[0].project_categories?project[0].project_categories[0].name:'-' }}</p>
           </div>
           <div class="col-lg-5 col-md-12 text-lg-right md-mt-3">
             <nav aria-label="breadcrumb" class="page-breadcrumb">
@@ -22,7 +22,7 @@
                 <li class="breadcrumb-item">
                   <p-link to="/projects">{{ $t('Projects') }}</p-link>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ project[0].name }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ project[0].name?project[0].name:'-' }}</li>
               </ol>
             </nav>
           </div>
@@ -43,23 +43,23 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
-              <img class="img-fluid radius w-100" :src="getStrapiMedia(project[0].defaultPicture.url,$config)"
-                   :alt="project[0].title">
+              <img class="img-fluid radius w-100" :src="project[0].defaultPicture?getStrapiMedia(project[0].defaultPicture.url,$config):'#'"
+                   :alt="project[0].name?project[0].name:'-'">
             </div>
             <div class="col-lg-5 col-md-12 md-mt-5">
               <ul class="portfolio-meta list-unstyled">
                 <li class="mb-5"><i class="la la-user"></i> <span> {{ $t('Customer') }} </span>
-                  {{ project[0].company.company_name }}
+                  {{ project[0].company?project[0].company.company_name:'-' }}
                 </li>
                 <li class="mb-5"><i class="la la-pencil-square"></i> <span> {{ $t('Year') }} </span> {{
-                    project[0].year
+                    project[0].year?project[0].year:'-'
                   }}
                 </li>
                 <li class="mb-5"><i class="la la-calendar-check-o"></i> <span> {{ $t('Languages') }} </span>
                   <div class="badge badge-success" v-for="lang in project[0].project_languages">{{ lang.name }}</div>
                 </li>
                 <li><i class="la la-map"></i> <span> {{ $t('Current status') }} </span>
-                  {{ project[0].current_project_status.name }}
+                  {{ project[0].current_project_status?project[0].current_project_status.name:'-' }}
                 </li>
               </ul>
             </div>
@@ -68,9 +68,9 @@
             <div class="col-md-12">
               <ul>
                 <li v-for="tech in project[0].technologies">
-                  <img :src="getStrapiMedia(tech.logo.url,$config)"
-                       class="img-fluid logo-tech box-shadow rounded-circle mb-3" :alt="tech.name">
-                  <div class="flip-back">{{ tech.name }}</div>
+                  <img :src="tech.logo?getStrapiMedia(tech.logo.url,$config):'#'"
+                       class="img-fluid logo-tech box-shadow rounded-circle mb-3" :alt="tech.name?tech.name:'-'">
+                  <div class="flip-back">{{ tech.name?tech.name:'-' }}</div>
                 </li>
               </ul>
             </div>
@@ -102,7 +102,7 @@
                 <div class="row">
                   <div class="col-md-4" v-for="p in project[0].media">
                     <div class="item" :data-src="getStrapiMedia(p.url)">
-                      <img class="project-media" :src="getStrapiMedia(p.url)" :alt="project[0].name">
+                      <img class="project-media" :src="getStrapiMedia(p.url)" :alt="project[0].media.caption?project[0].media.caption:project[0].name">
                     </div>
                   </div>
                 </div>

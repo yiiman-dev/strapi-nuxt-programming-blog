@@ -7,6 +7,8 @@
     <LogosBlock v-if="sec.__component==='sections.logos'" :session="sec"/>
     <BlogBlock v-if="sec.__component==='sections.news'" :session="sec" />
     <ProjectsBlock v-if="sec.__component==='sections.projects'" :session="sec"/>
+    <JSTag v-if="sec.__component==='shared.js-tag'" :session="sec"/>
+    <CSSTag v-if="sec.__component==='sections.css-tag'" :session="sec"/>
   </div>
 </div>
 </template>
@@ -18,12 +20,14 @@ import LogosBlock from "./LogosBlock";
 import BlogBlock from "./BlogBlock";
 import ProjectsBlock from "./ProjectsBlock";
 import HeroSection from "../HeroSection";
+import JSTag from "./JSTag";
+import CSSTag from "./CSSTag";
 export default {
   name: "AllBlocksComponent",
   props:[
     'page'
   ],
-  components: {HeroSection, ProjectsBlock, BlogBlock, LogosBlock, TestimotionalBlock, ServicesBox},
+  components: {CSSTag, JSTag, HeroSection, ProjectsBlock, BlogBlock, LogosBlock, TestimotionalBlock, ServicesBox},
 
 }
 </script>

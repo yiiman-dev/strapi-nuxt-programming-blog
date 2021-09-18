@@ -12,6 +12,7 @@ export default {
     port: port,
     host: host
   },
+  loading:'~/components/Loading.vue',
   build: {
     // analyze: true,
     babel: {
@@ -87,7 +88,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '@assets/global/sass/bootstrap.sass',
+    '@assets/global/sass/bootstrap/bootstrap.scss',
     '@assets/global/sass/animate.sass',
     '@assets/global/sass/fontawesome-all.sass',
     '@assets/global/sass/line-awesome.min.sass',

@@ -12,7 +12,7 @@
 
     <aside  v-if="pages.length===0 && false" id="mcgill-hero" class="js-fullheight">
       <div class="flexslider js-fullheight">
-        <h1 style="margin-top: 40%" class="text-center">Default Home Page Not Configed yet</h1>
+        <h1 style="margin-top: 40%" class="text-center">Default Home Page Not Configured yet</h1>
       </div>
     </aside>
 

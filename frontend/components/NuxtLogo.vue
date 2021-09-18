@@ -1,7 +1,6 @@
 <template>
   <p-link class="navbar-brand logo" to="/">
-    <img v-if="this.global && this.global.logo" class="img-center" :src="getStrapiMedia(this.global.logo.url,$config)"
-         :alt="title">
+    <img v-if="this.global && this.global.logo" class="img-center" :src="getStrapiMedia(this.global.logo.url,$config)">
   </p-link>
 </template>
 <script>
@@ -25,7 +24,6 @@ export default {
     } catch (e) {
       return '';
     }
-
   }
 
 }

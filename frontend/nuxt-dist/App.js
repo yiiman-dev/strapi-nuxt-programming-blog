@@ -3,10 +3,10 @@ import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL } fr
 
 import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
 import NuxtError from '../layouts/error.vue'
-import NuxtLoading from './components/nuxt-loading.vue'
+import NuxtLoading from '~/components/Loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '../assets/global/sass/bootstrap.sass'
+import '../assets/global/sass/bootstrap/bootstrap.scss'
 
 import '../assets/global/sass/animate.sass'
 

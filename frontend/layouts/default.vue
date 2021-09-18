@@ -3,18 +3,6 @@
 
     <div class="page-wrapper">
 
-      <!-- preloader start -->
-
-      <div id="ht-preloader">
-        <div class="clear-loader">
-          <div class="loader">
-            <div class="loader-div"><span>{{ global.siteName }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- preloader end -->
       <LayoutTopHeader :global="global" :menus="menus"/>
       <Nuxt/>
       <LayoutFooter :global="global" />

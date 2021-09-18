@@ -55,7 +55,9 @@
         "sections.faq",
         "sections.projects",
         "sections.hero",
-        "sections.services-box"
+        "sections.services-box",
+        "sections.css-tag",
+        "shared.js-tag"
       ]
     },
     "seo": {
