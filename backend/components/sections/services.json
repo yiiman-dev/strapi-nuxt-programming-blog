@@ -2,7 +2,8 @@
   "collectionName": "components_sections_services",
   "info": {
     "name": "Services",
-    "icon": "bolt"
+    "icon": "bolt",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,8 +14,11 @@
     "subtitle": {
       "type": "string"
     },
-    "services": {
-      "collection": "services"
+    "icon": {
+      "type": "text"
+    },
+    "url": {
+      "type": "text"
     }
   }
 }

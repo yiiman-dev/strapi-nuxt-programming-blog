@@ -10,8 +10,8 @@
       </div>
       <div class="row">
         <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
-          <ProjectCardWidget v-for="project in projects" :project="project"/>
-<!--          Pagination -->
+          <ProjectCardWidget v-bind:key="index" v-for="(project,index) in projects" :project="project"/>
+          <!--          Pagination -->
           <div v-if="false" class="row">
             <div class="col-md-12">
               <!-- Pagination -->
@@ -82,9 +82,10 @@
 
 <script>
 import {getStrapiMedia} from "../../utils/medias";
-import main from "../../assets/js/main.js"
 import ProjectCardWidget from "../../components/widgets/ProjectCardWidget";
-
+import main from "/assets/global/js/runTheme"
+import "assets/global/sass/bootstrap/_pagination.scss"
+import "assets/global/sass/bootstrap/_breadcrumb.scss"
 export default {
   name: "ProjectIndex",
   components: {ProjectCardWidget},
@@ -103,42 +104,43 @@ export default {
     }
 
   },
+
   methods: {
     getStrapiMedia,
     async serve() {
-      let data='';
-      if (this.selected_technologies.length>0|this.selected_categories.length>0){
-        data +='?'
+      let data = '';
+      if (this.selected_technologies.length > 0 | this.selected_categories.length > 0) {
+        data += '?'
       }
 
-      if (this.selected_technologies.length>0){
+      if (this.selected_technologies.length > 0) {
         for (let b = 0; b < this.selected_technologies.length; b++) {
-          data +="technologies.id_in="+this.selected_technologies[b]+'&'
+          data += "technologies.id_in=" + this.selected_technologies[b] + '&'
         }
       }
-      if (this.selected_categories.length>0){
+      if (this.selected_categories.length > 0) {
         for (let i = 0; i < this.selected_categories.length; i++) {
-          data +="project_categories.id_in="+this.selected_categories[i]+'&';
+          data += "project_categories.id_in=" + this.selected_categories[i] + '&';
         }
 
       }
-      this.projects = await this.$strapi.find('projects'+data);
+      this.projects = await this.$strapi.find('projects' + data);
     },
     count_text() {
       return String(this.global.projects_count_title).replace('{count}', this.project_count)
     }
   },
-  async asyncData({$strapi, params}) {
+  async asyncData({$strapi, params, i18n}) {
     return {
-      projects: await $strapi.find('projects'),
-      project_count: await $strapi.count('projects'),
-      categories: await $strapi.find('project-categories'),
-      global: await $strapi.find('project-categories-page'),
-      technologies: await $strapi.find('technologies')
+      projects: await $strapi.find('projects', {_locale: i18n.locale}),
+      project_count: await $strapi.count('projects', {_locale: i18n.locale}),
+      categories: await $strapi.find('project-categories', {_locale: i18n.locale}),
+      global: await $strapi.find('project-categories-page', {_locale: i18n.locale}),
+      technologies: await $strapi.find('technologies', {_locale: i18n.locale})
     }
   },
   mounted() {
-    main();
+    main(this)
   }
 }
 </script>

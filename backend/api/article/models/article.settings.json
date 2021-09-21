@@ -23,7 +23,9 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "maxLength": 44,
+      "minLength": 22
     },
     "description": {
       "type": "text",
@@ -48,9 +50,10 @@
       "targetField": "title",
       "required": true
     },
-    "category": {
+    "categories": {
+      "collection": "category",
       "via": "articles",
-      "model": "category"
+      "dominant": true
     },
     "image": {
       "model": "file",
@@ -75,6 +78,18 @@
     "technology": {
       "via": "articles",
       "model": "technologies"
+    },
+    "test": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    },
+    "tags": {
+      "unique": true,
+      "collection": "tags"
     }
   }
 }

@@ -1,0 +1,291 @@
+/* ------------------------------------------------
+ *  Project:   Sassaht - SaaS, Startup & WebApp Prebuilt Template
+ *  Author:    ThemeHt
+ *
+ *  NOTE: This is Color customizer stylesheet of template.
+ *------------------------------------------------
+
+.rtl
+  .color-customizer
+    z-index: 10000
+    left: -250px
+    width: 250px
+    position: fixed
+    top: 50%
+    -webkit-transform: translateY(-50%)
+    -moz-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    -o-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+    .color-button
+      text-align: center
+      display: inline-block
+      z-index: 2
+      position: absolute
+      background: #fff
+      width: 100%
+
+    .color-chooser
+      padding: 20px
+      background-color: #ffffff
+      -webkit-box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+      -moz-box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+      box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+
+    &.opened .color-chooser
+      opacity: 1
+
+    a.opener
+      display: block
+      height: 45px
+      background: rgba(3, 214, 101, 0.2)
+      border-top-right-radius: 5px
+      border-bottom-right-radius: 5px
+      width: 45px
+      font-size: 24px
+      line-height: 45px
+      color: #0d092c
+      position: absolute
+      left: 250px
+      top: 0
+      text-align: center
+      text-decoration: none
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+      -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+
+    &.opened a.opener
+      right: -45px
+      border-color: transparent
+
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      font-size: 0
+
+      li
+        width: 50px
+        height: 50px
+        border-radius: 7px
+        float: left
+        position: relative
+        display: inline-block
+        cursor: pointer
+        margin: 10px 10px 10px 10px
+        -webkit-transition: all linear 0.5s
+        -moz-transition: all linear 0.5s
+        -o-transition: all linear 0.5s
+        -ms-transition: all linear 0.5s
+        transition: all linear 0.5s
+
+        &:nth-child(3n+3)
+          margin-left: 0
+
+        &.selected
+          -webkit-box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+          -moz-box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+          box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+
+    .theme-default
+      background: rgb(3, 214, 101)
+      background: linear-gradient(58deg, rgba(3, 214, 101, 1) 35%, rgba(115, 41, 194, 1) 100%)
+
+    .theme-2
+      background: rgb(86, 50, 217)
+      background: linear-gradient(58deg, rgba(86, 50, 217, 1) 35%, rgba(143, 63, 222, 1) 100%)
+
+    .theme-3
+      background: rgb(7, 52, 233)
+      background: linear-gradient(58deg, rgba(7, 52, 233, 1) 25%, rgba(205, 56, 164, 1) 100%)
+
+    .theme-4
+      background: rgb(10, 9, 173)
+      background: linear-gradient(58deg, rgba(10, 9, 173, 1) 35%, rgba(116, 38, 170, 1) 100%)
+
+    .theme-5
+      background: rgb(102, 51, 165)
+      background: linear-gradient(58deg, rgba(102, 51, 165, 1) 35%, rgba(15, 62, 239, 1) 100%)
+
+    .theme-6
+      background: rgb(238, 88, 38)
+      background: linear-gradient(58deg, rgba(238, 88, 38, 1) 35%, rgba(243, 60, 106, 1) 100%)
+
+    .theme-7
+      background: rgb(118, 3, 243)
+      background: linear-gradient(58deg, rgba(118, 3, 243, 1) 35%, rgba(245, 0, 113, 1) 100%)
+
+    .theme-8
+      background: rgb(13, 240, 168)
+      background: linear-gradient(58deg, rgba(13, 240, 168, 1) 35%, rgba(5, 232, 231, 1) 100%)
+
+    .theme-9
+      background: rgb(111, 41, 130)
+      background: linear-gradient(58deg, rgba(111, 41, 130, 1) 35%, rgba(210, 38, 119, 1) 100%)
+
+    .theme-10
+      background: rgb(150, 81, 233)
+      background: linear-gradient(58deg, rgba(150, 81, 233, 1) 35%, rgba(9, 205, 243, 1) 100%)
+
+  @media (max-width: 576px)
+    .color-customizer
+      .color-chooser
+        padding: 10px
+
+      ul li
+        width: 35px
+        height: 35px
+        margin: 5px
+
+        &:nth-child(3n+3)
+          margin-left: 5px
+.ltr
+  .color-customizer
+    z-index: 10000
+    right: -250px
+    width: 250px
+    position: fixed
+    top: 50%
+    -webkit-transform: translateY(-50%)
+    -moz-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    -o-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+    .color-chooser
+      padding: 20px
+      background-color: #ffffff
+      -webkit-box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+      -moz-box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+      box-shadow: 0 0 20px 0 rgba(28, 30, 35, 0.2)
+
+    &.opened .color-chooser
+      opacity: 1
+
+    a.opener
+      display: block
+      height: 45px
+      background: rgba(3, 214, 101, 0.2)
+      border-top-left-radius: 5px
+      border-bottom-left-radius: 5px
+      width: 45px
+      font-size: 24px
+      line-height: 45px
+      color: #0d092c
+      position: absolute
+      right: 250px
+      top: 50%
+      -webkit-transform: translateY(-50%)
+      -moz-transform: translateY(-50%)
+      -ms-transform: translateY(-50%)
+      -o-transform: translateY(-50%)
+      transform: translateY(-50%)
+      text-align: center
+      text-decoration: none
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+      -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1)
+
+    &.opened a.opener
+      left: -45px
+      border-color: transparent
+
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      font-size: 0
+
+      li
+        width: 30px
+        height: 30px
+        border-radius: 7px
+        float: left
+        position: relative
+        display: inline-block
+        cursor: pointer
+        margin: 10px 10px 10px 10px
+        -webkit-transition: all linear 0.5s
+        -moz-transition: all linear 0.5s
+        -o-transition: all linear 0.5s
+        -ms-transition: all linear 0.5s
+        transition: all linear 0.5s
+
+        &:nth-child(4n+4)
+          margin-right: 0
+
+        &.selected
+          -webkit-box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+          -moz-box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+          box-shadow: 0 0px 30px rgba(0, 0, 0, 0.7)
+
+    .theme-default
+      background: rgb(3, 214, 101)
+      background: linear-gradient(58deg, rgba(3, 214, 101, 1) 35%, rgba(115, 41, 194, 1) 100%)
+
+    .theme-2
+      background: rgb(150, 81, 233)
+      background: linear-gradient(58deg, rgba(150, 81, 233, 1) 35%, rgba(9, 205, 243, 1) 100%)
+
+    .theme-3
+      background: rgb(98, 49, 238)
+      background: linear-gradient(58deg, rgba(98, 49, 238, 1) 35%, rgba(159, 87, 249, 1) 100%)
+
+    .theme-4
+      background: rgb(13, 240, 168)
+      background: linear-gradient(58deg, rgba(13, 240, 168, 1) 35%, rgba(5, 232, 231, 1) 100%)
+
+    .theme-5
+      background: rgb(118, 3, 243)
+      background: linear-gradient(58deg, rgba(118, 3, 243, 1) 35%, rgba(245, 0, 113, 1) 100%)
+
+    .theme-6
+      background: rgb(86, 50, 217)
+      background: linear-gradient(58deg, rgba(86, 50, 217, 1) 35%, rgba(143, 63, 222, 1) 100%)
+
+    .theme-7
+      background: rgb(7, 52, 233)
+      background: linear-gradient(58deg, rgba(7, 52, 233, 1) 35%, rgba(205, 56, 164, 1) 100%)
+
+    .theme-8
+      background: rgb(10, 9, 173)
+      background: linear-gradient(58deg, rgba(10, 9, 173, 1) 35%, rgba(116, 38, 170, 1) 100%)
+
+    .theme-9
+      background: rgb(113, 22, 208)
+      background: linear-gradient(58deg, rgba(113, 22, 208, 1) 35%, rgba(15, 62, 239, 1) 100%)
+
+    .theme-10
+      background: rgb(220, 32, 82)
+      background: linear-gradient(58deg, rgba(220, 32, 82, 1) 35%, rgba(243, 60, 106, 1) 100%)
+
+    .theme-font
+      font-size: 14px
+      font-weight: 500
+
+      li
+        width: inherit
+        height: inherit
+        box-shadow: none
+        color: #122126
+        background: rgba(3, 214, 101, 0.3)
+        border-radius: 0
+
+        &.selected
+          box-shadow: none
+          color: #ffffff
+          background: #03d665
+
+  @media (max-width: 576px)
+    .color-customizer
+      .color-chooser
+        padding: 10px
+
+      ul li
+        width: 35px
+        height: 35px
+        margin: 5px
+
+        &:nth-child(3n+3)
+          margin-right: 5px

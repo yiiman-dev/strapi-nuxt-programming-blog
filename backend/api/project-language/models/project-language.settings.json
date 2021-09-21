@@ -16,13 +16,13 @@
       "type": "string",
       "required": true
     },
-    "projects": {
-      "via": "project_language",
-      "collection": "project"
-    },
     "description": {
       "type": "text",
       "required": true
+    },
+    "projects": {
+      "via": "project_languages",
+      "collection": "project"
     }
   }
 }

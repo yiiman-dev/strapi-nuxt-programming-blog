@@ -12,21 +12,27 @@
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "content": {
       "type": "richtext",
+      "required": false
+    },
+    "boxType": {
+      "type": "enumeration",
+      "enum": [
+        "Type1",
+        "Type2",
+        "Type3"
+      ],
+      "default": "Type1",
       "required": true
     },
-    "background": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
+    "slideSpeed": {
+      "type": "integer",
+      "default": 2500,
+      "required": true,
+      "min": 2500
     }
   }
 }

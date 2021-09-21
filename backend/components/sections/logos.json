@@ -2,12 +2,33 @@
   "collectionName": "components_sections_logos",
   "info": {
     "name": "Logos",
-    "icon": "image"
+    "icon": "image",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "companies": {
       "collection": "company"
+    },
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": " "
+    },
+    "boxType": {
+      "type": "enumeration",
+      "enum": [
+        "Type1",
+        "Type2"
+      ],
+      "required": true,
+      "default": "Type1"
+    },
+    "boxStyle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.box-style",
+      "required": true
     }
   }
 }

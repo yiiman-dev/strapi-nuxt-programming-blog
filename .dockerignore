@@ -1,11 +1,11 @@
 frontend/node_modules
-node_modules
+node_modules/.bin
 backend/node_modules
 npm-debug*
 frontend/.nuxt
-frontend/.nuxt-dist
-backend/build
-backend/cache
+#frontend/.nuxt-dist
+#backend/build
+#backend/cache
 backend/.tmp
 backend/.strapi-updater.json
 backend/.package-lock.json
@@ -23,3 +23,5 @@ Dockerfile
 .package-lock.json
 .idea
 .git
+.env
+frontend/.env

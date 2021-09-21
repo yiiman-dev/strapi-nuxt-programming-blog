@@ -1,0 +1,100 @@
+[
+  {
+    "name": "blog___en",
+    "path": "/blog",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/index.vue",
+    "chunkName": "pages/blog/index",
+    "_name": "_07730029"
+  },
+  {
+    "name": "index___fa",
+    "path": "/fa",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_68f6d2fe"
+  },
+  {
+    "name": "projects___en",
+    "path": "/projects",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/projects/index.vue",
+    "chunkName": "pages/projects/index",
+    "_name": "_a51a35fe"
+  },
+  {
+    "name": "blog___fa",
+    "path": "/fa/blog",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/index.vue",
+    "chunkName": "pages/blog/index",
+    "_name": "_07730029"
+  },
+  {
+    "name": "projects___fa",
+    "path": "/fa/projects",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/projects/index.vue",
+    "chunkName": "pages/projects/index",
+    "_name": "_a51a35fe"
+  },
+  {
+    "name": "blog-categories-slug___fa",
+    "path": "/fa/blog/categories/:slug?",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/categories/_slug.vue",
+    "chunkName": "pages/blog/categories/_slug",
+    "_name": "_3285fdd0"
+  },
+  {
+    "name": "blog-categories-slug___en",
+    "path": "/blog/categories/:slug?",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/categories/_slug.vue",
+    "chunkName": "pages/blog/categories/_slug",
+    "_name": "_3285fdd0"
+  },
+  {
+    "name": "blog-slug___fa",
+    "path": "/fa/blog/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug",
+    "_name": "_05bc5ee1"
+  },
+  {
+    "name": "projects-slug___fa",
+    "path": "/fa/projects/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/projects/_slug.vue",
+    "chunkName": "pages/projects/_slug",
+    "_name": "_a887788e"
+  },
+  {
+    "name": "blog-slug___en",
+    "path": "/blog/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug",
+    "_name": "_05bc5ee1"
+  },
+  {
+    "name": "slug___fa",
+    "path": "/fa/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/_slug.vue",
+    "chunkName": "pages/_slug",
+    "_name": "_674031b6"
+  },
+  {
+    "name": "projects-slug___en",
+    "path": "/projects/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/projects/_slug.vue",
+    "chunkName": "pages/projects/_slug",
+    "_name": "_a887788e"
+  },
+  {
+    "name": "index___en",
+    "path": "/",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_68f6d2fe"
+  },
+  {
+    "name": "slug___en",
+    "path": "/:slug",
+    "component": "/Users/amintado/Documents/projects/company_site/yiiman_engin/frontend/pages/_slug.vue",
+    "chunkName": "pages/_slug",
+    "_name": "_674031b6"
+  }
+]

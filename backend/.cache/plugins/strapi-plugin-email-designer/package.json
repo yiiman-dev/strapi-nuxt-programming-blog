@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      "strapi-plugin-email-designer@1.1.4",
+      "/Users/amintado/Documents/projects/company_site/yiiman_engin/backend"
+    ]
+  ],
+  "_from": "strapi-plugin-email-designer@1.1.4",
+  "_id": "strapi-plugin-email-designer@1.1.4",
+  "_inBundle": false,
+  "_integrity": "sha512-qpVGbzTXzSbMDlacdmlqFMpAU1Q9+A1w/PP9RWhLTThUAF6o0z1dhLlZh8nvpA60L6nvzzB2SIpdy7qD8MDtIQ==",
+  "_location": "/strapi-plugin-email-designer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-email-designer@1.1.4",
+    "name": "strapi-plugin-email-designer",
+    "escapedName": "strapi-plugin-email-designer",
+    "rawSpec": "1.1.4",
+    "saveSpec": null,
+    "fetchSpec": "1.1.4"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email-designer/-/strapi-plugin-email-designer-1.1.4.tgz",
+  "_spec": "1.1.4",
+  "_where": "/Users/amintado/Documents/projects/company_site/yiiman_engin/backend",
+  "author": {
+    "name": "Alexandre Zaganelli",
+    "email": "me@alexzaganelli.com",
+    "url": "https://alexzaganelli.com"
+  },
+  "bugs": {
+    "url": "https://github.com/alexzaganelli/strapi-plugin-email-designer/issues"
+  },
+  "dependencies": {
+    "decode-html": "^2.0.0",
+    "html-to-text": "^8.0.0",
+    "lodash": "^4.17.21",
+    "react-email-editor": "^1.3.0",
+    "react-github-btn": "^1.2.0",
+    "react-syntax-highlighter": "^15.4.3",
+    "striptags": "^3.2.0"
+  },
+  "description": "Strapi Email designer plugin.",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "cypress": "^7.5.0",
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.1"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "funding": "https://paypal.me/AlexZaganelli",
+  "homepage": "https://github.com/alexzaganelli/strapi-plugin-email-designer#readme",
+  "keywords": [
+    "strapi",
+    "plugin",
+    "email",
+    "template",
+    "templates-design"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "Alexandre Zaganelli",
+      "email": "me@alexzaganelli.com",
+      "url": "https://alexzaganelli.com"
+    }
+  ],
+  "name": "strapi-plugin-email-designer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexzaganelli/strapi-plugin-email-designer.git"
+  },
+  "scripts": {
+    "cypress:install": "node ./node_modules/cypress/bin/cypress install",
+    "cypress:open": "cypress open",
+    "prettier:check": "prettier --check **/*.js",
+    "prettier:write": "prettier --write **/*.js"
+  },
+  "strapi": {
+    "name": "email-designer",
+    "icon": "envelope",
+    "description": "Design your own email templates directly from the Strapi admin panel and use the magic to send it programmatically in your controllers / services."
+  },
+  "version": "1.1.4"
+}

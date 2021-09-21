@@ -1,0 +1,59 @@
+{
+  "_args": [
+    [
+      "strapi-plugin-i18n@3.6.7",
+      "/Users/amintado/Documents/projects/company_site/yiiman_engin/backend"
+    ]
+  ],
+  "_from": "strapi-plugin-i18n@3.6.7",
+  "_id": "strapi-plugin-i18n@3.6.7",
+  "_inBundle": false,
+  "_integrity": "sha512-NQiyVJ8RPVEhqsc9FfO69J1tLcZ7gM8hXgpFY24wr25AKQep9mbR+hFfSTTS5RzoF7fZW0pfGTX0jqbMuUL6Ag==",
+  "_location": "/strapi-plugin-i18n",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-i18n@3.6.7",
+    "name": "strapi-plugin-i18n",
+    "escapedName": "strapi-plugin-i18n",
+    "rawSpec": "3.6.7",
+    "saveSpec": null,
+    "fetchSpec": "3.6.7"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-i18n/-/strapi-plugin-i18n-3.6.7.tgz",
+  "_spec": "3.6.7",
+  "_where": "/Users/amintado/Documents/projects/company_site/yiiman_engin/backend",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "p-map": "4.0.0",
+    "pluralize": "8.0.0",
+    "strapi-utils": "3.6.7"
+  },
+  "description": "This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API",
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "gitHead": "5202c4ed5c96d5e39823e8e6e936bb75c2c59a33",
+  "license": "SEE LICENSE IN LICENSE",
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "name": "strapi-plugin-i18n",
+  "strapi": {
+    "name": "Internationalization",
+    "icon": "round-language",
+    "description": "i18n.plugin.description",
+    "required": false
+  },
+  "version": "3.6.7"
+}

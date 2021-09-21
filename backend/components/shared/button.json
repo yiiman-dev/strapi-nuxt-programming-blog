@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_shared_buttons",
+  "info": {
+    "name": "button",
+    "icon": "mouse-pointer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 300,
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "theme",
+        "white",
+        "danger",
+        "default",
+        "dark",
+        "info",
+        "success",
+        "warning",
+        "outlineDanger",
+        "outlineDark",
+        "outlineInfo",
+        "outlineLight",
+        "outlinePrimary",
+        "outlineSecondary",
+        "outlineSuccess",
+        "outlineWarning"
+      ],
+      "required": true,
+      "default": "theme"
+    }
+  }
+}

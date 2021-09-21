@@ -83,7 +83,7 @@ nbproject
 public/uploads/*
 !public/uploads/.gitkeep
 frontend/.nuxt
-frontend/nuxt-dist
+#frontend/nuxt-dist
 ############################
 # Node.js
 ############################
@@ -110,6 +110,6 @@ coverage
 .env
 license.txt
 exports
-*.cache
-build
+#*.cache
+#build
 .strapi-updater.json
