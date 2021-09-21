@@ -141,8 +141,8 @@ export default (ctx, inject) => {
 
   // prefixUrl
   const prefixUrl = process.browser
-      ? (runtimeConfig.browserBaseURL || 'http://127.0.0.1:1337')
-      : (runtimeConfig.baseURL || process.env._HTTP_BASE_URL_ || 'http://127.0.0.1:1337')
+      ? (runtimeConfig.browserBaseURL || 'http://192.168.1.101:1337')
+      : (runtimeConfig.baseURL || process.env._HTTP_BASE_URL_ || 'http://192.168.1.101:1337')
 
   const headers = {}
 

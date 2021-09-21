@@ -10,6 +10,9 @@
 //    slide in its in-transition state. Only one of these occurs at a time.
 // 5. .carousel-item-next.carousel-item-start and .carousel-item-prev.carousel-item-end
 //    is the upcoming slide in transition.
+@import "functions";
+@import "variables";
+@import "mixins";
 
 .carousel {
   position: relative;

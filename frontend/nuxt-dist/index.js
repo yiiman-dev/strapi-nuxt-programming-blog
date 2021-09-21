@@ -21,6 +21,8 @@ import nuxt_plugin_cookieuniversalnuxt_331e2a2e from 'nuxt_plugin_cookieuniversa
 import nuxt_plugin_http_3d6a0e22 from 'nuxt_plugin_http_3d6a0e22' // Source: ./http.js (mode: 'all')
 import nuxt_plugin_strapi_ccc688e4 from 'nuxt_plugin_strapi_ccc688e4' // Source: ./strapi.js (mode: 'all')
 import nuxt_plugin_markdownit_241613e4 from 'nuxt_plugin_markdownit_241613e4' // Source: ./markdown-it.js (mode: 'all')
+import nuxt_plugin_colorcustomizer_298a8ae8 from 'nuxt_plugin_colorcustomizer_298a8ae8' // Source: ../plugins/color-customizer.js (mode: 'all')
+import nuxt_plugin_lightGallery_283c20e5 from 'nuxt_plugin_lightGallery_283c20e5' // Source: ../plugins/lightGallery.js (mode: 'all')
 import nuxt_plugin_auth_70b08fcf from 'nuxt_plugin_auth_70b08fcf' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -89,7 +91,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"script":[{"src":"\u002Fjs\u002Fcommon-theme.js"},{"src":"\u002Fjs\u002Fjquery.nice-select.js"},{"src":"\u002Fjs\u002Fowl-carousel\u002Fowl.carousel.min.js"},{"src":"\u002Fjs\u002Fmagnific-popup\u002Fjquery.magnific-popup.min.js"},{"src":"\u002Fjs\u002Fcounter\u002Fcounter.js"},{"src":"\u002Fjs\u002Fisotope\u002Fisotope.pkgd.min.js"},{"src":"\u002Fjs\u002Fparticles.min.js"},{"src":"\u002Fjs\u002Fvivus\u002Fpathformer.js"},{"src":"\u002Fjs\u002Fvivus\u002Fvivus.js"},{"src":"\u002Fjs\u002Fraindrops\u002Fjquery-ui.js"},{"src":"\u002Fjs\u002Fraindrops\u002Fraindrops.js"},{"src":"\u002Fjs\u002Fcountdown\u002Fjquery.countdown.min.js"},{"src":"\u002Fjs\u002Fcontact-form\u002Fcontact-form.js"},{"src":"\u002Fjs\u002Fwow.min.js"},{"src":"\u002Fjs\u002Fcolor-customize\u002Fcolor-customizer.js"}],"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Staatliches"}],"style":[]},
+    head: {"script":[{"src":"\u002Fjs\u002Fcommon-theme.js"},{"src":"\u002Fjs\u002Fjquery.nice-select.js"},{"src":"\u002Fjs\u002Fmagnific-popup\u002Fjquery.magnific-popup.min.js"},{"src":"\u002Fjs\u002Fcounter\u002Fcounter.js"},{"src":"\u002Fjs\u002Fisotope\u002Fisotope.pkgd.min.js"},{"src":"\u002Fjs\u002Fparticles.min.js"},{"src":"\u002Fjs\u002Fvivus\u002Fpathformer.js"},{"src":"\u002Fjs\u002Fvivus\u002Fvivus.js"},{"src":"\u002Fjs\u002Fraindrops\u002Fjquery-ui.js"},{"src":"\u002Fjs\u002Fraindrops\u002Fraindrops.js"},{"src":"\u002Fjs\u002Fcountdown\u002Fjquery.countdown.min.js"},{"src":"\u002Fjs\u002Fcontact-form\u002Fcontact-form.js"},{"src":"\u002Fjs\u002Fwow.min.js"},{"src":"\u002Fjs\u002Fcolor-customize\u002Fcolor-customizer.js"}],"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Staatliches"}],"style":[]},
 
     store,
     router,
@@ -248,6 +250,14 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_markdownit_241613e4 === 'function') {
     await nuxt_plugin_markdownit_241613e4(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_colorcustomizer_298a8ae8 === 'function') {
+    await nuxt_plugin_colorcustomizer_298a8ae8(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_lightGallery_283c20e5 === 'function') {
+    await nuxt_plugin_lightGallery_283c20e5(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_70b08fcf === 'function') {

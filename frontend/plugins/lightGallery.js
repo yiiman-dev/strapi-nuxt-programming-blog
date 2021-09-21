@@ -10,5 +10,4 @@ if(process.browser){
     });
     console.log(l);
   })
-
 }

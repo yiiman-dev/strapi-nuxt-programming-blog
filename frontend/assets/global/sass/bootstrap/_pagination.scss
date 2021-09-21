@@ -1,3 +1,6 @@
+@import "functions";
+@import "variables";
+@import "mixins";
 .pagination {
   display: flex;
   @include list-unstyled();

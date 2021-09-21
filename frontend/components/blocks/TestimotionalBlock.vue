@@ -248,33 +248,29 @@
 
     <!--testimonial end-->
   </div>
-
-
-
-
-
 </template>
 
 <script>
 import {getStrapiMedia} from "../../utils/medias";
-
-
+import 'assets/global/sass/bootstrap/_carousel.scss'
+import 'assets/global/sass/bootstrap/_nav.scss'
 export default {
   name: "TestimotionalBlock",
   props:['session'],
-  methods:{getStrapiMedia}
+
+  methods:{
+    getStrapiMedia,
+  },
 }
 </script>
 
 <style>
-
 .testimonial.style-3 .testimonial-img img {
 
   height: 100px;
   width: 100px;
 }
 </style>
-<style >
-@import "assets/global/css/owl-carousel/owl.carousel.css";
-</style>
+
+
 

@@ -23,5 +23,6 @@ export default (app)=>{
   // for (let i = 0; i < jsList.length; i++) {
   //   require('/assets/global'+jsList[i].src);
   // }
+
   require('/assets/'+app.$i18n.localeProperties.layout+'/js/theme-script.js').default();
 }

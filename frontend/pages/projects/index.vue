@@ -84,7 +84,8 @@
 import {getStrapiMedia} from "../../utils/medias";
 import ProjectCardWidget from "../../components/widgets/ProjectCardWidget";
 import main from "/assets/global/js/runTheme"
-
+import "assets/global/sass/bootstrap/_pagination.scss"
+import "assets/global/sass/bootstrap/_breadcrumb.scss"
 export default {
   name: "ProjectIndex",
   components: {ProjectCardWidget},

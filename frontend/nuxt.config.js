@@ -44,7 +44,8 @@ export default {
   },
   env: {
     NUXT_PORT: port,
-    NUXT_HOST: host
+    NUXT_HOST: host,
+    API_URL:process.env.API_URL
   },
   publicRuntimeConfig: {
     API_URL: process.env.API_URL
@@ -57,7 +58,6 @@ export default {
     script: [
       {src: "/js/common-theme.js"},
       {src: "/js/jquery.nice-select.js"},
-      {src: "/js/owl-carousel/owl.carousel.min.js"},
       {src: "/js/magnific-popup/jquery.magnific-popup.min.js"},
       {src: "/js/counter/counter.js"},
       {src: "/js/isotope/isotope.pkgd.min.js"},
@@ -99,10 +99,10 @@ export default {
     '@assets/global/sass/responsive.sass',
     '@assets/global/sass/color-customizer.sass',
   ],
-  // plugins: [
-  //   '~plugins/theme.js',
-  //   "~/plugins/lightGallery.js"
-  // ],
+  plugins: [
+    '~/plugins/color-customizer.js',
+    "~/plugins/lightGallery.js"
+  ],
 
 
   modules: [

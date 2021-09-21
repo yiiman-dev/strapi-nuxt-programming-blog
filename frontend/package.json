@@ -43,7 +43,8 @@
     "nuxt": "^2.15.8",
     "popper.js": "^1.16.1",
     "wolfy87-eventemitter": "^5.2.9",
-    "lightgallery": "^2.2.0"
+    "lightgallery": "^2.2.0",
+    "owl.carousel": "^2.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

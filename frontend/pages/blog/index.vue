@@ -130,7 +130,8 @@ import {getMetaTags} from "../../utils/seo";
 import PLink from "../../components/Base/p-link";
 import Layout from "../../components/Base/Layout";
 import main from "/assets/global/js/runTheme"
-
+import "assets/global/sass/bootstrap/_pagination.scss"
+import "assets/global/sass/bootstrap/_breadcrumb.scss"
 export default {
   name: "index",
   components: {Layout, PLink},

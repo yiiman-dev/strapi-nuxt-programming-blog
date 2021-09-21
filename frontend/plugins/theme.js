@@ -16,5 +16,5 @@ if (process.browser) {
   // require("/assets/global/js/wow.min")
   require("/assets/global/js/color-customize/color-customizer")
   require("/assets/global/js/color-customize/color-customizer")
-  console.log(jQuery);
+
 }
